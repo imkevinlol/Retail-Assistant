@@ -1,0 +1,543 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		11D5A9371EBEDA460031A017 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11D5A9361EBEDA460031A017 /* AppDelegate.swift */; };
+		11D5A9391EBEDA460031A017 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11D5A9381EBEDA460031A017 /* FirstViewController.swift */; };
+		11D5A93B1EBEDA460031A017 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11D5A93A1EBEDA460031A017 /* SecondViewController.swift */; };
+		11D5A93E1EBEDA460031A017 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 11D5A93C1EBEDA460031A017 /* Main.storyboard */; };
+		11D5A9401EBEDA470031A017 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 11D5A93F1EBEDA470031A017 /* Assets.xcassets */; };
+		11D5A9431EBEDA470031A017 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 11D5A9411EBEDA470031A017 /* LaunchScreen.storyboard */; };
+		11D5A94E1EBEDA470031A017 /* Retail_AssistantTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11D5A94D1EBEDA470031A017 /* Retail_AssistantTests.swift */; };
+		11D5A9591EBEDA470031A017 /* Retail_AssistantUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11D5A9581EBEDA470031A017 /* Retail_AssistantUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		11D5A94A1EBEDA470031A017 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 11D5A92B1EBEDA460031A017 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 11D5A9321EBEDA460031A017;
+			remoteInfo = "Retail Assistant";
+		};
+		11D5A9551EBEDA470031A017 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 11D5A92B1EBEDA460031A017 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 11D5A9321EBEDA460031A017;
+			remoteInfo = "Retail Assistant";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		11D5A9331EBEDA460031A017 /* Retail Assistant.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Retail Assistant.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		11D5A9361EBEDA460031A017 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		11D5A9381EBEDA460031A017 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
+		11D5A93A1EBEDA460031A017 /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
+		11D5A93D1EBEDA460031A017 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		11D5A93F1EBEDA470031A017 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		11D5A9421EBEDA470031A017 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		11D5A9441EBEDA470031A017 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		11D5A9491EBEDA470031A017 /* Retail AssistantTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Retail AssistantTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		11D5A94D1EBEDA470031A017 /* Retail_AssistantTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Retail_AssistantTests.swift; sourceTree = "<group>"; };
+		11D5A94F1EBEDA470031A017 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		11D5A9541EBEDA470031A017 /* Retail AssistantUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Retail AssistantUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		11D5A9581EBEDA470031A017 /* Retail_AssistantUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Retail_AssistantUITests.swift; sourceTree = "<group>"; };
+		11D5A95A1EBEDA470031A017 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		11D5A9301EBEDA460031A017 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		11D5A9461EBEDA470031A017 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		11D5A9511EBEDA470031A017 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		11D5A92A1EBEDA460031A017 = {
+			isa = PBXGroup;
+			children = (
+				11D5A9351EBEDA460031A017 /* Retail Assistant */,
+				11D5A94C1EBEDA470031A017 /* Retail AssistantTests */,
+				11D5A9571EBEDA470031A017 /* Retail AssistantUITests */,
+				11D5A9341EBEDA460031A017 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		11D5A9341EBEDA460031A017 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				11D5A9331EBEDA460031A017 /* Retail Assistant.app */,
+				11D5A9491EBEDA470031A017 /* Retail AssistantTests.xctest */,
+				11D5A9541EBEDA470031A017 /* Retail AssistantUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		11D5A9351EBEDA460031A017 /* Retail Assistant */ = {
+			isa = PBXGroup;
+			children = (
+				11D5A9361EBEDA460031A017 /* AppDelegate.swift */,
+				11D5A9381EBEDA460031A017 /* FirstViewController.swift */,
+				11D5A93A1EBEDA460031A017 /* SecondViewController.swift */,
+				11D5A93C1EBEDA460031A017 /* Main.storyboard */,
+				11D5A93F1EBEDA470031A017 /* Assets.xcassets */,
+				11D5A9411EBEDA470031A017 /* LaunchScreen.storyboard */,
+				11D5A9441EBEDA470031A017 /* Info.plist */,
+			);
+			path = "Retail Assistant";
+			sourceTree = "<group>";
+		};
+		11D5A94C1EBEDA470031A017 /* Retail AssistantTests */ = {
+			isa = PBXGroup;
+			children = (
+				11D5A94D1EBEDA470031A017 /* Retail_AssistantTests.swift */,
+				11D5A94F1EBEDA470031A017 /* Info.plist */,
+			);
+			path = "Retail AssistantTests";
+			sourceTree = "<group>";
+		};
+		11D5A9571EBEDA470031A017 /* Retail AssistantUITests */ = {
+			isa = PBXGroup;
+			children = (
+				11D5A9581EBEDA470031A017 /* Retail_AssistantUITests.swift */,
+				11D5A95A1EBEDA470031A017 /* Info.plist */,
+			);
+			path = "Retail AssistantUITests";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		11D5A9321EBEDA460031A017 /* Retail Assistant */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 11D5A95D1EBEDA470031A017 /* Build configuration list for PBXNativeTarget "Retail Assistant" */;
+			buildPhases = (
+				11D5A92F1EBEDA460031A017 /* Sources */,
+				11D5A9301EBEDA460031A017 /* Frameworks */,
+				11D5A9311EBEDA460031A017 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Retail Assistant";
+			productName = "Retail Assistant";
+			productReference = 11D5A9331EBEDA460031A017 /* Retail Assistant.app */;
+			productType = "com.apple.product-type.application";
+		};
+		11D5A9481EBEDA470031A017 /* Retail AssistantTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 11D5A9601EBEDA470031A017 /* Build configuration list for PBXNativeTarget "Retail AssistantTests" */;
+			buildPhases = (
+				11D5A9451EBEDA470031A017 /* Sources */,
+				11D5A9461EBEDA470031A017 /* Frameworks */,
+				11D5A9471EBEDA470031A017 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				11D5A94B1EBEDA470031A017 /* PBXTargetDependency */,
+			);
+			name = "Retail AssistantTests";
+			productName = "Retail AssistantTests";
+			productReference = 11D5A9491EBEDA470031A017 /* Retail AssistantTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		11D5A9531EBEDA470031A017 /* Retail AssistantUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 11D5A9631EBEDA470031A017 /* Build configuration list for PBXNativeTarget "Retail AssistantUITests" */;
+			buildPhases = (
+				11D5A9501EBEDA470031A017 /* Sources */,
+				11D5A9511EBEDA470031A017 /* Frameworks */,
+				11D5A9521EBEDA470031A017 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				11D5A9561EBEDA470031A017 /* PBXTargetDependency */,
+			);
+			name = "Retail AssistantUITests";
+			productName = "Retail AssistantUITests";
+			productReference = 11D5A9541EBEDA470031A017 /* Retail AssistantUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		11D5A92B1EBEDA460031A017 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0830;
+				LastUpgradeCheck = 0830;
+				ORGANIZATIONNAME = "Phan, Kevin(MAN-Corporate)";
+				TargetAttributes = {
+					11D5A9321EBEDA460031A017 = {
+						CreatedOnToolsVersion = 8.3.2;
+						DevelopmentTeam = 5RZXM366T2;
+						ProvisioningStyle = Automatic;
+					};
+					11D5A9481EBEDA470031A017 = {
+						CreatedOnToolsVersion = 8.3.2;
+						DevelopmentTeam = 5RZXM366T2;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 11D5A9321EBEDA460031A017;
+					};
+					11D5A9531EBEDA470031A017 = {
+						CreatedOnToolsVersion = 8.3.2;
+						DevelopmentTeam = 5RZXM366T2;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 11D5A9321EBEDA460031A017;
+					};
+				};
+			};
+			buildConfigurationList = 11D5A92E1EBEDA460031A017 /* Build configuration list for PBXProject "Retail Assistant" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 11D5A92A1EBEDA460031A017;
+			productRefGroup = 11D5A9341EBEDA460031A017 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				11D5A9321EBEDA460031A017 /* Retail Assistant */,
+				11D5A9481EBEDA470031A017 /* Retail AssistantTests */,
+				11D5A9531EBEDA470031A017 /* Retail AssistantUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		11D5A9311EBEDA460031A017 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				11D5A9431EBEDA470031A017 /* LaunchScreen.storyboard in Resources */,
+				11D5A9401EBEDA470031A017 /* Assets.xcassets in Resources */,
+				11D5A93E1EBEDA460031A017 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		11D5A9471EBEDA470031A017 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		11D5A9521EBEDA470031A017 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		11D5A92F1EBEDA460031A017 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				11D5A93B1EBEDA460031A017 /* SecondViewController.swift in Sources */,
+				11D5A9371EBEDA460031A017 /* AppDelegate.swift in Sources */,
+				11D5A9391EBEDA460031A017 /* FirstViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		11D5A9451EBEDA470031A017 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				11D5A94E1EBEDA470031A017 /* Retail_AssistantTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		11D5A9501EBEDA470031A017 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				11D5A9591EBEDA470031A017 /* Retail_AssistantUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		11D5A94B1EBEDA470031A017 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 11D5A9321EBEDA460031A017 /* Retail Assistant */;
+			targetProxy = 11D5A94A1EBEDA470031A017 /* PBXContainerItemProxy */;
+		};
+		11D5A9561EBEDA470031A017 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 11D5A9321EBEDA460031A017 /* Retail Assistant */;
+			targetProxy = 11D5A9551EBEDA470031A017 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		11D5A93C1EBEDA460031A017 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				11D5A93D1EBEDA460031A017 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		11D5A9411EBEDA470031A017 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				11D5A9421EBEDA470031A017 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		11D5A95B1EBEDA470031A017 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		11D5A95C1EBEDA470031A017 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		11D5A95E1EBEDA470031A017 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 5RZXM366T2;
+				INFOPLIST_FILE = "Retail Assistant/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.isakatch.Retail-Assistant";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		11D5A95F1EBEDA470031A017 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 5RZXM366T2;
+				INFOPLIST_FILE = "Retail Assistant/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.isakatch.Retail-Assistant";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+		11D5A9611EBEDA470031A017 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = 5RZXM366T2;
+				INFOPLIST_FILE = "Retail AssistantTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.isakatch.Retail-AssistantTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Retail Assistant.app/Retail Assistant";
+			};
+			name = Debug;
+		};
+		11D5A9621EBEDA470031A017 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = 5RZXM366T2;
+				INFOPLIST_FILE = "Retail AssistantTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.isakatch.Retail-AssistantTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Retail Assistant.app/Retail Assistant";
+			};
+			name = Release;
+		};
+		11D5A9641EBEDA470031A017 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				DEVELOPMENT_TEAM = 5RZXM366T2;
+				INFOPLIST_FILE = "Retail AssistantUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.isakatch.Retail-AssistantUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_TARGET_NAME = "Retail Assistant";
+			};
+			name = Debug;
+		};
+		11D5A9651EBEDA470031A017 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				DEVELOPMENT_TEAM = 5RZXM366T2;
+				INFOPLIST_FILE = "Retail AssistantUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.isakatch.Retail-AssistantUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_TARGET_NAME = "Retail Assistant";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		11D5A92E1EBEDA460031A017 /* Build configuration list for PBXProject "Retail Assistant" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				11D5A95B1EBEDA470031A017 /* Debug */,
+				11D5A95C1EBEDA470031A017 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		11D5A95D1EBEDA470031A017 /* Build configuration list for PBXNativeTarget "Retail Assistant" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				11D5A95E1EBEDA470031A017 /* Debug */,
+				11D5A95F1EBEDA470031A017 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		11D5A9601EBEDA470031A017 /* Build configuration list for PBXNativeTarget "Retail AssistantTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				11D5A9611EBEDA470031A017 /* Debug */,
+				11D5A9621EBEDA470031A017 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		11D5A9631EBEDA470031A017 /* Build configuration list for PBXNativeTarget "Retail AssistantUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				11D5A9641EBEDA470031A017 /* Debug */,
+				11D5A9651EBEDA470031A017 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 11D5A92B1EBEDA460031A017 /* Project object */;
+}
