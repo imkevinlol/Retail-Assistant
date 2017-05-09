@@ -1,0 +1,6 @@
+framework module Pods_Retail_AssistantTests {
+  umbrella header "Pods-Retail AssistantTests-umbrella.h"
+
+  export *
+  module * { export * }
+}

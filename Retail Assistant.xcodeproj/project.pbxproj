@@ -7,14 +7,22 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		112EFA931EBEE2AB0056C54A /* ProductViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 112EFA921EBEE2AB0056C54A /* ProductViewController.swift */; };
+		112EFA951EBEEA8A0056C54A /* EntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 112EFA941EBEEA8A0056C54A /* EntryViewController.swift */; };
+		112EFA981EBF920D0056C54A /* RetailProduct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 112EFA971EBF920D0056C54A /* RetailProduct.swift */; };
+		112EFA9A1EBFE1FF0056C54A /* ProductDisplayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 112EFA991EBFE1FF0056C54A /* ProductDisplayViewController.swift */; };
+		115A40481EC1344800C668BB /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = 115A40471EC1344800C668BB /* File.swift */; };
 		11D5A9371EBEDA460031A017 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11D5A9361EBEDA460031A017 /* AppDelegate.swift */; };
-		11D5A9391EBEDA460031A017 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11D5A9381EBEDA460031A017 /* FirstViewController.swift */; };
-		11D5A93B1EBEDA460031A017 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11D5A93A1EBEDA460031A017 /* SecondViewController.swift */; };
+		11D5A9391EBEDA460031A017 /* AlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11D5A9381EBEDA460031A017 /* AlertViewController.swift */; };
 		11D5A93E1EBEDA460031A017 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 11D5A93C1EBEDA460031A017 /* Main.storyboard */; };
 		11D5A9401EBEDA470031A017 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 11D5A93F1EBEDA470031A017 /* Assets.xcassets */; };
 		11D5A9431EBEDA470031A017 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 11D5A9411EBEDA470031A017 /* LaunchScreen.storyboard */; };
 		11D5A94E1EBEDA470031A017 /* Retail_AssistantTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11D5A94D1EBEDA470031A017 /* Retail_AssistantTests.swift */; };
 		11D5A9591EBEDA470031A017 /* Retail_AssistantUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11D5A9581EBEDA470031A017 /* Retail_AssistantUITests.swift */; };
+		11D5A9671EBEDDC20031A017 /* CalculatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11D5A9661EBEDDC20031A017 /* CalculatorViewController.swift */; };
+		5E5CE2E66DD6FB0EB6E56CE5 /* Pods_Retail_Assistant.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8324A64351B6BD2D42A90EAA /* Pods_Retail_Assistant.framework */; };
+		63BF3F44D1CC8CE69A24225E /* Pods_Retail_AssistantTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D835D9A087A7E5D2E13B792 /* Pods_Retail_AssistantTests.framework */; };
+		F8042B6A90F3B416298407F2 /* Pods_Retail_AssistantUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7987939A1329CAFBC31E8EAA /* Pods_Retail_AssistantUITests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,10 +43,15 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0DAE95B2AC809492F3E8E748 /* Pods-Retail Assistant.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Retail Assistant.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Retail Assistant/Pods-Retail Assistant.debug.xcconfig"; sourceTree = "<group>"; };
+		112EFA921EBEE2AB0056C54A /* ProductViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductViewController.swift; sourceTree = "<group>"; };
+		112EFA941EBEEA8A0056C54A /* EntryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EntryViewController.swift; sourceTree = "<group>"; };
+		112EFA971EBF920D0056C54A /* RetailProduct.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RetailProduct.swift; sourceTree = "<group>"; };
+		112EFA991EBFE1FF0056C54A /* ProductDisplayViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductDisplayViewController.swift; sourceTree = "<group>"; };
+		115A40471EC1344800C668BB /* File.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
 		11D5A9331EBEDA460031A017 /* Retail Assistant.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Retail Assistant.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		11D5A9361EBEDA460031A017 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		11D5A9381EBEDA460031A017 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
-		11D5A93A1EBEDA460031A017 /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
+		11D5A9381EBEDA460031A017 /* AlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertViewController.swift; sourceTree = "<group>"; };
 		11D5A93D1EBEDA460031A017 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		11D5A93F1EBEDA470031A017 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		11D5A9421EBEDA470031A017 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -49,6 +62,15 @@
 		11D5A9541EBEDA470031A017 /* Retail AssistantUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Retail AssistantUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		11D5A9581EBEDA470031A017 /* Retail_AssistantUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Retail_AssistantUITests.swift; sourceTree = "<group>"; };
 		11D5A95A1EBEDA470031A017 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		11D5A9661EBEDDC20031A017 /* CalculatorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalculatorViewController.swift; sourceTree = "<group>"; };
+		23600163B8DCA71F5DA189DC /* Pods-Retail AssistantUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Retail AssistantUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Retail AssistantUITests/Pods-Retail AssistantUITests.release.xcconfig"; sourceTree = "<group>"; };
+		3885EBD6D664695490D03D9C /* Pods-Retail AssistantTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Retail AssistantTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Retail AssistantTests/Pods-Retail AssistantTests.release.xcconfig"; sourceTree = "<group>"; };
+		3D835D9A087A7E5D2E13B792 /* Pods_Retail_AssistantTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Retail_AssistantTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7987939A1329CAFBC31E8EAA /* Pods_Retail_AssistantUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Retail_AssistantUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8324A64351B6BD2D42A90EAA /* Pods_Retail_Assistant.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Retail_Assistant.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		985E2849714B5C940E782C69 /* Pods-Retail Assistant.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Retail Assistant.release.xcconfig"; path = "Pods/Target Support Files/Pods-Retail Assistant/Pods-Retail Assistant.release.xcconfig"; sourceTree = "<group>"; };
+		998A2013D123D128C6629E39 /* Pods-Retail AssistantUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Retail AssistantUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Retail AssistantUITests/Pods-Retail AssistantUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		FBFA58D99339AC689A1EEE87 /* Pods-Retail AssistantTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Retail AssistantTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Retail AssistantTests/Pods-Retail AssistantTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +78,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5E5CE2E66DD6FB0EB6E56CE5 /* Pods_Retail_Assistant.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -63,6 +86,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				63BF3F44D1CC8CE69A24225E /* Pods_Retail_AssistantTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -70,12 +94,29 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F8042B6A90F3B416298407F2 /* Pods_Retail_AssistantUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		112EFA961EBF91D30056C54A /* Modal */ = {
+			isa = PBXGroup;
+			children = (
+				112EFA971EBF920D0056C54A /* RetailProduct.swift */,
+			);
+			name = Modal;
+			sourceTree = "<group>";
+		};
+		115A40461EC1343900C668BB /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				115A40471EC1344800C668BB /* File.swift */,
+			);
+			name = Extension;
+			sourceTree = "<group>";
+		};
 		11D5A92A1EBEDA460031A017 = {
 			isa = PBXGroup;
 			children = (
@@ -83,6 +124,8 @@
 				11D5A94C1EBEDA470031A017 /* Retail AssistantTests */,
 				11D5A9571EBEDA470031A017 /* Retail AssistantUITests */,
 				11D5A9341EBEDA460031A017 /* Products */,
+				DE2AFF6FBCB31024DF7988D0 /* Pods */,
+				8A1C9AB1A41D6C575C6662E3 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -99,9 +142,14 @@
 		11D5A9351EBEDA460031A017 /* Retail Assistant */ = {
 			isa = PBXGroup;
 			children = (
+				115A40461EC1343900C668BB /* Extension */,
+				112EFA961EBF91D30056C54A /* Modal */,
 				11D5A9361EBEDA460031A017 /* AppDelegate.swift */,
-				11D5A9381EBEDA460031A017 /* FirstViewController.swift */,
-				11D5A93A1EBEDA460031A017 /* SecondViewController.swift */,
+				11D5A9381EBEDA460031A017 /* AlertViewController.swift */,
+				11D5A9661EBEDDC20031A017 /* CalculatorViewController.swift */,
+				112EFA921EBEE2AB0056C54A /* ProductViewController.swift */,
+				112EFA941EBEEA8A0056C54A /* EntryViewController.swift */,
+				112EFA991EBFE1FF0056C54A /* ProductDisplayViewController.swift */,
 				11D5A93C1EBEDA460031A017 /* Main.storyboard */,
 				11D5A93F1EBEDA470031A017 /* Assets.xcassets */,
 				11D5A9411EBEDA470031A017 /* LaunchScreen.storyboard */,
@@ -128,6 +176,29 @@
 			path = "Retail AssistantUITests";
 			sourceTree = "<group>";
 		};
+		8A1C9AB1A41D6C575C6662E3 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				8324A64351B6BD2D42A90EAA /* Pods_Retail_Assistant.framework */,
+				3D835D9A087A7E5D2E13B792 /* Pods_Retail_AssistantTests.framework */,
+				7987939A1329CAFBC31E8EAA /* Pods_Retail_AssistantUITests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		DE2AFF6FBCB31024DF7988D0 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				0DAE95B2AC809492F3E8E748 /* Pods-Retail Assistant.debug.xcconfig */,
+				985E2849714B5C940E782C69 /* Pods-Retail Assistant.release.xcconfig */,
+				FBFA58D99339AC689A1EEE87 /* Pods-Retail AssistantTests.debug.xcconfig */,
+				3885EBD6D664695490D03D9C /* Pods-Retail AssistantTests.release.xcconfig */,
+				998A2013D123D128C6629E39 /* Pods-Retail AssistantUITests.debug.xcconfig */,
+				23600163B8DCA71F5DA189DC /* Pods-Retail AssistantUITests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -135,9 +206,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 11D5A95D1EBEDA470031A017 /* Build configuration list for PBXNativeTarget "Retail Assistant" */;
 			buildPhases = (
+				406FA4DDE2EC1597862E7B1C /* [CP] Check Pods Manifest.lock */,
 				11D5A92F1EBEDA460031A017 /* Sources */,
 				11D5A9301EBEDA460031A017 /* Frameworks */,
 				11D5A9311EBEDA460031A017 /* Resources */,
+				18DA761A735B9349F4251B7A /* [CP] Embed Pods Frameworks */,
+				8A17DF99E4E89B30EE0CCC88 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -152,9 +226,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 11D5A9601EBEDA470031A017 /* Build configuration list for PBXNativeTarget "Retail AssistantTests" */;
 			buildPhases = (
+				6DC071D77278051BEFC771B7 /* [CP] Check Pods Manifest.lock */,
 				11D5A9451EBEDA470031A017 /* Sources */,
 				11D5A9461EBEDA470031A017 /* Frameworks */,
 				11D5A9471EBEDA470031A017 /* Resources */,
+				B7989056D871ED92681EB368 /* [CP] Embed Pods Frameworks */,
+				7C2B002AF8CC0E093BB259C9 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -170,9 +247,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 11D5A9631EBEDA470031A017 /* Build configuration list for PBXNativeTarget "Retail AssistantUITests" */;
 			buildPhases = (
+				EE5EB961B589D52E3333E68B /* [CP] Check Pods Manifest.lock */,
 				11D5A9501EBEDA470031A017 /* Sources */,
 				11D5A9511EBEDA470031A017 /* Frameworks */,
 				11D5A9521EBEDA470031A017 /* Resources */,
+				E6F2E22AA1EDB103227B7A07 /* [CP] Embed Pods Frameworks */,
+				138247135AEE2C25CCCBE27E /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -260,14 +340,157 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		138247135AEE2C25CCCBE27E /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Retail AssistantUITests/Pods-Retail AssistantUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		18DA761A735B9349F4251B7A /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Retail Assistant/Pods-Retail Assistant-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		406FA4DDE2EC1597862E7B1C /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		6DC071D77278051BEFC771B7 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		7C2B002AF8CC0E093BB259C9 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Retail AssistantTests/Pods-Retail AssistantTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8A17DF99E4E89B30EE0CCC88 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Retail Assistant/Pods-Retail Assistant-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B7989056D871ED92681EB368 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Retail AssistantTests/Pods-Retail AssistantTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E6F2E22AA1EDB103227B7A07 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Retail AssistantUITests/Pods-Retail AssistantUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		EE5EB961B589D52E3333E68B /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		11D5A92F1EBEDA460031A017 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				11D5A93B1EBEDA460031A017 /* SecondViewController.swift in Sources */,
 				11D5A9371EBEDA460031A017 /* AppDelegate.swift in Sources */,
-				11D5A9391EBEDA460031A017 /* FirstViewController.swift in Sources */,
+				112EFA951EBEEA8A0056C54A /* EntryViewController.swift in Sources */,
+				112EFA981EBF920D0056C54A /* RetailProduct.swift in Sources */,
+				11D5A9671EBEDDC20031A017 /* CalculatorViewController.swift in Sources */,
+				112EFA9A1EBFE1FF0056C54A /* ProductDisplayViewController.swift in Sources */,
+				115A40481EC1344800C668BB /* File.swift in Sources */,
+				112EFA931EBEE2AB0056C54A /* ProductViewController.swift in Sources */,
+				11D5A9391EBEDA460031A017 /* AlertViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -419,6 +642,7 @@
 		};
 		11D5A95E1EBEDA470031A017 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0DAE95B2AC809492F3E8E748 /* Pods-Retail Assistant.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 5RZXM366T2;
@@ -432,6 +656,7 @@
 		};
 		11D5A95F1EBEDA470031A017 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 985E2849714B5C940E782C69 /* Pods-Retail Assistant.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 5RZXM366T2;
@@ -445,6 +670,7 @@
 		};
 		11D5A9611EBEDA470031A017 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FBFA58D99339AC689A1EEE87 /* Pods-Retail AssistantTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -460,6 +686,7 @@
 		};
 		11D5A9621EBEDA470031A017 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3885EBD6D664695490D03D9C /* Pods-Retail AssistantTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -475,6 +702,7 @@
 		};
 		11D5A9641EBEDA470031A017 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 998A2013D123D128C6629E39 /* Pods-Retail AssistantUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				DEVELOPMENT_TEAM = 5RZXM366T2;
@@ -489,6 +717,7 @@
 		};
 		11D5A9651EBEDA470031A017 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 23600163B8DCA71F5DA189DC /* Pods-Retail AssistantUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				DEVELOPMENT_TEAM = 5RZXM366T2;
@@ -520,6 +749,7 @@
 				11D5A95F1EBEDA470031A017 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		11D5A9601EBEDA470031A017 /* Build configuration list for PBXNativeTarget "Retail AssistantTests" */ = {
 			isa = XCConfigurationList;
@@ -528,6 +758,7 @@
 				11D5A9621EBEDA470031A017 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		11D5A9631EBEDA470031A017 /* Build configuration list for PBXNativeTarget "Retail AssistantUITests" */ = {
 			isa = XCConfigurationList;
@@ -536,6 +767,7 @@
 				11D5A9651EBEDA470031A017 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -1,11 +1,3 @@
-//
-//  AppDelegate.swift
-//  Retail Assistant
-//
-//  Created by Phan, Kevin(MAN-Corporate) on 5/7/17.
-//  Copyright © 2017 Phan, Kevin(MAN-Corporate). All rights reserved.
-//
-
 import UIKit
 
 @UIApplicationMain
