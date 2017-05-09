@@ -328,11 +328,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Retail Assistant/ProductDisplayViewController.swift"
-            timestampString = "516051173.395797"
+            timestampString = "516055403.255404"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "108"
-            endingLineNumber = "108"
+            startingLineNumber = "124"
+            endingLineNumber = "124"
             landmarkName = "getCellDetailText(count:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -344,11 +344,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Retail Assistant/ProductEditViewController.swift"
-            timestampString = "516050136.136862"
+            timestampString = "516054569.398897"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "134"
-            endingLineNumber = "134"
+            startingLineNumber = "136"
+            endingLineNumber = "136"
             landmarkName = "createDatePicker()"
             landmarkType = "7">
          </BreakpointContent>

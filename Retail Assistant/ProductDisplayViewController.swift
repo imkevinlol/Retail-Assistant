@@ -1,4 +1,5 @@
 import UIKit
+import RealmSwift
 
 class ProductDisplayViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
@@ -13,8 +14,17 @@ class ProductDisplayViewController: UIViewController, UITableViewDelegate, UITab
         setupTable()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.reloadTable()
+    }
+    
+    func reloadTable() {
+        displayTableView?.reloadData()
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 14
+        return 17
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -66,6 +76,12 @@ class ProductDisplayViewController: UIViewController, UITableViewDelegate, UITab
             return "Size"
         case 12:
             return "Store"
+        case 13:
+            return "Actual Sale Price"
+        case 14:
+            return "Actual Profit"
+        case 15:
+            return "Return Date"
         default:
             print("I effed up somewhere")
             return ""
@@ -77,13 +93,13 @@ class ProductDisplayViewController: UIViewController, UITableViewDelegate, UITab
         case 0:
             return (product?.type)!
         case 1:
-            return String(format: "%.2f", (product?.originalPrice)!)
+            return "$" + String(format: "%.2f", (product?.originalPrice)!)
         case 2:
-            return String(format: "%.2f", (product?.purchasePrice)!)
+            return "$" + String(format: "%.2f", (product?.purchasePrice)!)
         case 3:
-            return String(format: "%.2f", (product?.estSalePrice)!)
+            return "$" + String(format: "%.2f", (product?.estSalePrice)!)
         case 4:
-            return String(format: "%.2f", (product?.estProfit)!)
+            return "$" + String(format: "%.2f", (product?.estProfit)!)
         case 5:
             return (product?.quality)!
         case 6:
@@ -110,6 +126,12 @@ class ProductDisplayViewController: UIViewController, UITableViewDelegate, UITab
             return (product?.size)!
         case 12:
             return (product?.store)!
+        case 13:
+            return "$" + String(format: "%.2f", (product?.salePrice)!)
+        case 14:
+            return "$" + String(format: "%.2f", (product?.salePrice)! - (product?.purchasePrice)!)
+        case 15:
+            return getReturnDate()
         default:
             print("I effed up somewhere")
             return ""
@@ -117,12 +139,13 @@ class ProductDisplayViewController: UIViewController, UITableViewDelegate, UITab
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let viewController = storyboard?.instantiateViewController(withIdentifier: "productEditView") as! ProductEditViewController
-//        viewController.product = product
-        viewController.propertyEdited = displayTableView.cellForRow(at: indexPath)?.textLabel?.text
-        viewController.index = indexPath.row
-        viewController.productId = (product?.id)!
-        self.navigationController?.pushViewController(viewController, animated: true)
+        if (indexPath.row < 14) {
+            let viewController = storyboard?.instantiateViewController(withIdentifier: "productEditView") as! ProductEditViewController
+            viewController.propertyEdited = displayTableView.cellForRow(at: indexPath)?.textLabel?.text
+            viewController.index = indexPath.row
+            viewController.productId = (product?.id)!
+            self.navigationController?.pushViewController(viewController, animated: true)
+        }
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -163,9 +186,11 @@ class ProductDisplayViewController: UIViewController, UITableViewDelegate, UITab
         
         newImageView.backgroundColor = .black
         newImageView.isUserInteractionEnabled = true
+        
         let tap = UITapGestureRecognizer(target: self, action: #selector(dismissFullscreenImage))
         newImageView.addGestureRecognizer(tap)
         self.view.addSubview(newImageView)
+        
         self.navigationController?.isNavigationBarHidden = true
         self.tabBarController?.tabBar.isHidden = true
     }
@@ -192,5 +217,31 @@ class ProductDisplayViewController: UIViewController, UITableViewDelegate, UITab
         }
         
         return UIImage()
+    }
+    
+    func getReturnDate() -> String {
+        let start = product?.dateOfPurchase
+        let days = getDaysFromStore()
+        
+        if (days < 0) {
+            return "Unlimited"
+        }
+        
+        let formatter = DateFormatter()
+        formatter.dateFormat = "MM/dd/yyyy"
+        return formatter.string(from: Calendar.current.date(byAdding: .day, value: days, to: start!)!)
+    }
+    
+    func getDaysFromStore() -> Int {
+        if (product?.store == "Bloomingdale's") {
+            return -1
+        }
+        else if (product?.store == "Nordstrom Rack") {
+            return 90
+        } else if (product?.store == "Neiman Marcus") {
+            return 60
+        } else {
+            return 30
+        }
     }
 }

@@ -18,6 +18,9 @@ open class RetailProduct: Object {
     dynamic var store : String = ""
     dynamic var imagePath : NSString = ""
     dynamic var receiptPath : NSString = ""
+    dynamic var salePrice : Double = 0.0
+    dynamic var profit : Double = 0.0
+
     
     override open static func primaryKey() -> String? {
         return "id"
