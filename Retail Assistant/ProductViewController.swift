@@ -57,27 +57,6 @@ class ProductViewController: UIViewController, UITableViewDelegate, UITableViewD
         return cell!
     }
     
-    func getImage(id: Int) -> UIImage {
-        let nsDocumentDirectory = FileManager.SearchPathDirectory.documentDirectory
-        let nsUserDomainMask    = FileManager.SearchPathDomainMask.userDomainMask
-        let paths               = NSSearchPathForDirectoriesInDomains(nsDocumentDirectory, nsUserDomainMask, true)
-        if let dirPath          = paths.first
-        {
-            let imageURL = URL(fileURLWithPath: dirPath).appendingPathComponent("ret-assist-" + String(id) + ".jpg")
-            return UIImage(contentsOfFile: imageURL.path)!
-        }
-        
-        return UIImage()
-    }
-    
-    func getTypeId(type: String, id: Int) -> String {
-        return type[0] + String(id)
-    }
-    
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 100
-    }
-    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let viewController = storyboard?.instantiateViewController(withIdentifier: "productView") as! ProductDisplayViewController
         viewController.product = datasource[indexPath.row]
@@ -94,6 +73,27 @@ class ProductViewController: UIViewController, UITableViewDelegate, UITableViewD
             } catch{}
             productTableView.deleteRows(at: [indexPath as IndexPath], with: UITableViewRowAnimation.automatic)
         }
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 100
+    }
+    
+    func getImage(id: Int) -> UIImage {
+        let nsDocumentDirectory = FileManager.SearchPathDirectory.documentDirectory
+        let nsUserDomainMask    = FileManager.SearchPathDomainMask.userDomainMask
+        let paths               = NSSearchPathForDirectoriesInDomains(nsDocumentDirectory, nsUserDomainMask, true)
+        if let dirPath          = paths.first
+        {
+            let imageURL = URL(fileURLWithPath: dirPath).appendingPathComponent("ret-assist-" + String(id) + ".jpg")
+            return UIImage(contentsOfFile: imageURL.path)!
+        }
+        
+        return UIImage()
+    }
+    
+    func getTypeId(type: String, id: Int) -> String {
+        return type[0] + String(id)
     }
     
     override func didReceiveMemoryWarning() {

@@ -25,8 +25,8 @@ class EntryViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
     var currentArray = [String]()
     
     var typeList = ["Clothing", "Bag", "Shoes", "Accessory", "Other"]
-    var qualityList = ["Trash", "Poor", "Average", "Good", "Excellent"]
-    var brandList = ["Stuart Weitzman", "Jimmy Choo", "Tory Burch", "Charlotte Olympia", "Manono Blahnik", "Valentino"]
+    var qualityList = ["Trash", "Poor", "Average", "Good", "Excellent", "Unknown"]
+    var brandList = ["Stuart Weitzman", "Jimmy Choo", "Tory Burch", "Charlotte Olympia", "Manono Blahnik", "Valentino", "Other"]
     var storeList = ["Nordstrom Rack", "Neiman Marcus", "Saks", "Other"]
     var isImage : Bool?
     

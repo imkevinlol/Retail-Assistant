@@ -1,6 +1,6 @@
 import UIKit
 
-class ProductDisplayViewController: UIViewController {
+class ProductDisplayViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var displayTableView: UITableView!
     @IBOutlet weak var itemImage: UIImageView!
@@ -10,6 +10,128 @@ class ProductDisplayViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         loadProductView()
+        setupTable()
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 14
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let identifier: String = "myCell"
+        var cell = displayTableView.dequeueReusableCell(withIdentifier: identifier)
+        if (cell == nil) {
+            cell = UITableViewCell(style: .subtitle, reuseIdentifier: identifier)
+        }
+
+        cell?.textLabel?.text = getCellText(count: indexPath.row)
+        cell?.detailTextLabel?.text = getCellDetailText(count: indexPath.row)
+        cell?.textLabel?.textColor = .black
+        cell?.textLabel?.font = cell?.textLabel?.font.withSize(12)
+
+
+        cell?.detailTextLabel?.textColor = UIColor(red:0.31, green:0.77, blue:0.76, alpha:1.0)
+        cell?.detailTextLabel?.font = cell?.detailTextLabel?.font.withSize(20)
+        cell?.accessoryType = .disclosureIndicator
+        cell?.tintColor = UIColor.cyan
+        
+        return cell!
+    }
+    
+    func getCellText(count: Int) -> String {
+        switch count {
+        case 0:
+            return "Type"
+        case 1:
+            return "Original Price"
+        case 2:
+            return "Purchase Price"
+        case 3:
+            return "Estimated Sale Price"
+        case 4:
+            return "Estimated Profit"
+        case 5:
+            return "Quality"
+        case 6:
+            return "Brand"
+        case 7:
+            return "Dust Bag Included"
+        case 8:
+            return "Original Box Included"
+        case 9:
+            return "Purchase Date"
+        case 10:
+            return "Style Name"
+        case 11:
+            return "Size"
+        case 12:
+            return "Store"
+        default:
+            print("I effed up somewhere")
+            return ""
+        }
+    }
+    
+    func getCellDetailText(count: Int) -> String {
+        switch count {
+        case 0:
+            return (product?.type)!
+        case 1:
+            return String(format: "%.2f", (product?.originalPrice)!)
+        case 2:
+            return String(format: "%.2f", (product?.purchasePrice)!)
+        case 3:
+            return String(format: "%.2f", (product?.estSalePrice)!)
+        case 4:
+            return String(format: "%.2f", (product?.estProfit)!)
+        case 5:
+            return (product?.quality)!
+        case 6:
+            return (product?.brand)!
+        case 7:
+            if (product?.dustBag)! {
+                return "Yes"
+            } else {
+                return "No"
+            }
+        case 8:
+            if (product?.originalBox)! {
+                return "Yes"
+            } else {
+                return "No"
+            }
+        case 9:
+            let formatter = DateFormatter()
+            formatter.dateFormat = "MM/dd/yyyy"
+            return formatter.string(from: (product!.dateOfPurchase))
+        case 10:
+            return (product?.styleName)!
+        case 11:
+            return (product?.size)!
+        case 12:
+            return (product?.store)!
+        default:
+            print("I effed up somewhere")
+            return ""
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let viewController = storyboard?.instantiateViewController(withIdentifier: "productEditView") as! ProductEditViewController
+//        viewController.product = product
+        viewController.propertyEdited = displayTableView.cellForRow(at: indexPath)?.textLabel?.text
+        viewController.index = indexPath.row
+        viewController.productId = (product?.id)!
+        self.navigationController?.pushViewController(viewController, animated: true)
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 50
+    }
+    
+    func setupTable() {
+        displayTableView.delegate = self
+        displayTableView.dataSource = self
     }
     
     func loadProductView() {
@@ -26,19 +148,6 @@ class ProductDisplayViewController: UIViewController {
         itemImage.isUserInteractionEnabled = true
         receiptImage.addGestureRecognizer(pictureTap2)
         receiptImage.isUserInteractionEnabled = true
-        
-//        salePriceLB.text = String(format: "%.2f", (product?.estSalePrice)!)
-//        profitLB.text = String(format: "%.2f", (product?.estProfit)!)
-//        typeTF.text = product?.type
-//        originalPriceTF.text = String(format: "%.2f", (product?.originalPrice)!)
-//        purchasePriceTF.text = String(format: "%.2f", (product?.purchasePrice)!)
-//        qualityTF.text = product?.quality
-//        brandTF.text = product?.brand
-//        dustBagSW.isOn = (product?.dustBag)!
-//        originalBoxSW.isOn = (product?.originalBox)!
-//        let dateFormatter = DateFormatter()
-//        dateFormatter.dateFormat = "MM/dd/yyyy"
-//        dateOfPurchaseTF.text = dateFormatter.string(from: (product?.dateOfPurchase)!)
     }
 
     override func didReceiveMemoryWarning() {
@@ -83,9 +192,5 @@ class ProductDisplayViewController: UIViewController {
         }
         
         return UIImage()
-    }
-    
-    @IBAction func toProductEditVC(_ sender: Any) {
-        
     }
 }
