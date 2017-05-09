@@ -1,8 +1,8 @@
 import UIKit
 import RealmSwift
 
-class EntryViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate {
-
+class EntryViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    
     @IBOutlet weak var typeTF: UITextField!
     @IBOutlet weak var originalPriceTF: UITextField!
     @IBOutlet weak var purchasePriceTF: UITextField!
@@ -16,53 +16,72 @@ class EntryViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
     @IBOutlet weak var storeTF: UITextField!
     @IBOutlet weak var sizeTF: UITextField!
     @IBOutlet weak var styleNameTF: UITextField!
+    @IBOutlet weak var itemImage: UIImageView!
+    @IBOutlet weak var receiptImage: UIImageView!
     
     var picker = UIPickerView()
     var datePicker = UIDatePicker()
     var activeTextField = UITextField()
     var currentArray = [String]()
-        
+    
     var typeList = ["Clothing", "Bag", "Shoes", "Accessory", "Other"]
     var qualityList = ["Trash", "Poor", "Average", "Good", "Excellent"]
     var brandList = ["Stuart Weitzman", "Jimmy Choo", "Tory Burch", "Charlotte Olympia", "Manono Blahnik", "Valentino"]
     var storeList = ["Nordstrom Rack", "Neiman Marcus", "Saks", "Other"]
+    var isImage : Bool?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        picker.delegate = self
-        picker.dataSource = self
-        typeTF.inputView = picker
-        typeTF.delegate = self
-        qualityTF.inputView = picker
-        qualityTF.delegate = self
-        brandTF.inputView = picker
-        storeTF.delegate = self
-        storeTF.inputView = picker
-        brandTF.delegate = self
-        typeTF.text = "Shoes"
-        profitLB.text = "0.00"
-        salePriceLB.text = "0.00"
-        originalPriceTF.text = "0.00"
-        purchasePriceTF.text = "0.00"
-        brandTF.text = "Stuart Weitzman"
-        dustBagSW.isOn = false
-        originalBoxSW.isOn = false
-        qualityTF.text = "Excellent"
-        storeTF.text = "Nordstrom Rack"
-        sizeTF.text = "1"
-        dateOfPurchaseTF.text = getTodayDate()
+        loadDelegates()
+        initializeViews()
+        loadImageFunctions()
         createDatePicker()
-        originalPriceTF.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
-        purchasePriceTF.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
-
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(EntryViewController.dismissKeyboard))
         view.addGestureRecognizer(tap)
+        
+    }
+    
+    func imageTapped(tapGestureRecognizer: UITapGestureRecognizer)
+    {
+        let imagePicker = UIImagePickerController()
+        imagePicker.delegate = self
+        imagePicker.sourceType = UIImagePickerControllerSourceType.camera
+        imagePicker.allowsEditing = false
+        self.present(imagePicker, animated: true, completion: nil)
+        isImage = true
+    }
+    
+    func receiptTapped(tapGestureRecognizer: UITapGestureRecognizer)
+    {
+        let imagePicker = UIImagePickerController()
+        imagePicker.delegate = self
+        imagePicker.sourceType = UIImagePickerControllerSourceType.camera
+        imagePicker.allowsEditing = false
+        self.present(imagePicker, animated: true, completion: nil)
+        isImage = false
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        if let image = info[UIImagePickerControllerOriginalImage] as? UIImage
+        {
+            if (isImage)! {
+                itemImage.image = image
+            } else {
+                receiptImage.image = image
+            }
+        } else {
+            let alert = UIAlertController(title: "Alert", message: "We had an issue in the image conversion process...", preferredStyle: UIAlertControllerStyle.alert)
+            alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+        }
+        
+        self.dismiss(animated: true, completion: nil)
     }
     
     func textFieldDidChange(_ textField: UITextField) {
         let originalPrice = Double(originalPriceTF.text!)
         let purchasePrice = Double(purchasePriceTF.text!)
-
+        
         if (originalPrice != nil) {
             let salePrice = originalPrice! * 0.5
             salePriceLB.text = String(format:"%.2f", salePrice)
@@ -104,7 +123,7 @@ class EntryViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
         let date = Date()
         let formatter = DateFormatter()
         formatter.dateFormat = "MM/dd/yyyy"
-         return formatter.string(from: date)
+        return formatter.string(from: date)
     }
     
     func getDateFromString(dateStr: String) -> Date {
@@ -112,7 +131,7 @@ class EntryViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
         formatter.dateFormat = "MM/dd/yyyy"
         return formatter.date(from: dateStr)!
     }
-
+    
     @IBAction func actionSaveItem(_ sender: Any) {
         saveItem()
         self.navigationController?.popToRootViewController(animated: true)
@@ -136,6 +155,25 @@ class EntryViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
         do {
             let realm = try Realm()
             newProduct.id = ((realm.objects(RetailProduct.self).map{$0.id}.max() ?? 0) + 1)
+            
+            if (itemImage.image != nil) {
+                let data = UIImageJPEGRepresentation(itemImage.image!, 1.0) as NSData?
+                let documentsPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0] as NSString
+                let writePath = documentsPath.appendingPathComponent("ret-assist-" + String(newProduct.id) + ".jpg")
+                data?.write(toFile: writePath, atomically: true)
+                let itemImageUrl = writePath as NSString
+                newProduct.imagePath = itemImageUrl
+            }
+            
+            if (receiptImage.image != nil) {
+                let data = UIImageJPEGRepresentation(receiptImage.image!, 1.0) as NSData?
+                let documentsPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0] as NSString
+                let writePath = documentsPath.appendingPathComponent("ret-assist-" + String(newProduct.id) + "-receipt.jpg")
+                data?.write(toFile: writePath, atomically: true)
+                let receiptImageUrl = writePath as NSString
+                newProduct.receiptPath = receiptImageUrl
+            }
+            
             try realm.write({ () -> Void in
                 realm.add(newProduct)
                 print("Contact Saved")
@@ -163,7 +201,7 @@ class EntryViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
+    
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
@@ -181,5 +219,47 @@ class EntryViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
         return currentArray[row]
     }
     
+    func loadImageFunctions() {
+        itemImage.image = UIImage(named: "shopping-bag")
+        receiptImage.image = UIImage(named: "receipt")
+        
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(imageTapped(tapGestureRecognizer:)))
+        itemImage.isUserInteractionEnabled = true
+        itemImage.addGestureRecognizer(tapGestureRecognizer)
+
+        let tapGestureRecognizer2 = UITapGestureRecognizer(target: self, action: #selector(receiptTapped(tapGestureRecognizer:)))
+        receiptImage.isUserInteractionEnabled = true
+        receiptImage.addGestureRecognizer(tapGestureRecognizer2)
+    }
     
+    func initializeViews() {
+        typeTF.text = "Shoes"
+        profitLB.text = "0.00"
+        salePriceLB.text = "0.00"
+        originalPriceTF.text = "0.00"
+        purchasePriceTF.text = "0.00"
+        brandTF.text = "Stuart Weitzman"
+        dustBagSW.isOn = false
+        originalBoxSW.isOn = false
+        qualityTF.text = "Excellent"
+        storeTF.text = "Nordstrom Rack"
+        sizeTF.text = "1"
+        dateOfPurchaseTF.text = getTodayDate()
+        originalPriceTF.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
+        purchasePriceTF.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
+        
+    }
+    
+    func loadDelegates() {
+        picker.delegate = self
+        picker.dataSource = self
+        typeTF.inputView = picker
+        typeTF.delegate = self
+        qualityTF.inputView = picker
+        qualityTF.delegate = self
+        brandTF.inputView = picker
+        storeTF.delegate = self
+        storeTF.inputView = picker
+        brandTF.delegate = self
+    }
 }

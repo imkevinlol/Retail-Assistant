@@ -1,7 +1,7 @@
 import UIKit
 import RealmSwift
 
-public class RetailProduct: Object {
+open class RetailProduct: Object {
     dynamic var type : String = ""
     dynamic var originalPrice : Double = 0.0
     dynamic var purchasePrice : Double = 0.0
@@ -16,8 +16,10 @@ public class RetailProduct: Object {
     dynamic var styleName : String = ""
     dynamic var size : String = ""
     dynamic var store : String = ""
+    dynamic var imagePath : NSString = ""
+    dynamic var receiptPath : NSString = ""
     
-    override public static func primaryKey() -> String? {
+    override open static func primaryKey() -> String? {
         return "id"
     }
 }

@@ -2,7 +2,7 @@ import UIKit
 import RealmSwift
 
 class ProductViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-
+    
     @IBOutlet weak var productTableView: UITableView!
     
     var datasource : Results<RetailProduct>!
@@ -34,7 +34,7 @@ class ProductViewController: UIViewController, UITableViewDelegate, UITableViewD
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return datasource.count
     }
-
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let identifier: String = "myCell"
         var cell = productTableView.dequeueReusableCell(withIdentifier: identifier)
@@ -43,15 +43,31 @@ class ProductViewController: UIViewController, UITableViewDelegate, UITableViewD
         }
         
         let currentProduct = datasource[indexPath.row]
-
+        
         let formatter = DateFormatter()
         formatter.dateFormat = "MM/dd/yyyy"
         let botVal = "PD: " +  formatter.string(from: currentProduct.dateOfPurchase) + " | PP: " + String(format: "%.2f", (currentProduct.purchasePrice))
         let topVal = getTypeId(type: currentProduct.type, id: currentProduct.id) + " | " + currentProduct.brand + " | " + currentProduct.size
         cell?.textLabel?.text = topVal
         cell?.detailTextLabel?.text = botVal
+        if (currentProduct.imagePath != "") {
+            cell?.imageView?.image = getImage(id: currentProduct.id)
+        }
         
         return cell!
+    }
+    
+    func getImage(id: Int) -> UIImage {
+        let nsDocumentDirectory = FileManager.SearchPathDirectory.documentDirectory
+        let nsUserDomainMask    = FileManager.SearchPathDomainMask.userDomainMask
+        let paths               = NSSearchPathForDirectoriesInDomains(nsDocumentDirectory, nsUserDomainMask, true)
+        if let dirPath          = paths.first
+        {
+            let imageURL = URL(fileURLWithPath: dirPath).appendingPathComponent("ret-assist-" + String(id) + ".jpg")
+            return UIImage(contentsOfFile: imageURL.path)!
+        }
+        
+        return UIImage()
     }
     
     func getTypeId(type: String, id: Int) -> String {
@@ -93,7 +109,7 @@ class ProductViewController: UIViewController, UITableViewDelegate, UITableViewD
             self.navigationItem.leftBarButtonItem?.title = "Edit"
             productTableView.isEditing = false
             self.navigationItem.rightBarButtonItem?.isEnabled = true
-
+            
         }
     }
     
