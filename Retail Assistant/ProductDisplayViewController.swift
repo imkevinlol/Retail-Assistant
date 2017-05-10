@@ -178,21 +178,21 @@ class ProductDisplayViewController: UIViewController, UITableViewDelegate, UITab
     }
     
     @IBAction func imageTapped(_ sender: UITapGestureRecognizer) {
-        let imageView = sender.view as! UIImageView
-        let newImageView = UIImageView(image: imageView.image)
- 
-        newImageView.frame = CGRect(x: 0,y: 0,width: 450, height: 600)
-        newImageView.center = (imageView.superview?.center)!
-        
-        newImageView.backgroundColor = .black
-        newImageView.isUserInteractionEnabled = true
-        
-        let tap = UITapGestureRecognizer(target: self, action: #selector(dismissFullscreenImage))
-        newImageView.addGestureRecognizer(tap)
-        self.view.addSubview(newImageView)
-        
-        self.navigationController?.isNavigationBarHidden = true
-        self.tabBarController?.tabBar.isHidden = true
+//        let imageView = sender.view as! UIImageView
+//        let newImageView = UIImageView(image: imageView.image)
+// 
+//        newImageView.frame = CGRect(x: 0,y: 0,width: 450, height: 600)
+//        newImageView.center = (imageView.superview?.center)!
+//        
+//        newImageView.backgroundColor = .black
+//        newImageView.isUserInteractionEnabled = true
+//        
+//        let tap = UITapGestureRecognizer(target: self, action: #selector(dismissFullscreenImage))
+//        newImageView.addGestureRecognizer(tap)
+//        self.view.addSubview(newImageView)
+//        
+//        self.navigationController?.isNavigationBarHidden = true
+//        self.tabBarController?.tabBar.isHidden = true
     }
     
     func dismissFullscreenImage(_ sender: UITapGestureRecognizer) {
