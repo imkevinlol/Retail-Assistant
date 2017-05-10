@@ -138,6 +138,9 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hlh-S3-Iga">
                                 <rect key="frame" x="220" y="78" width="174" height="152"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="showModalR:" destination="cad-DC-pvA" eventType="touchUpInside" id="qC9-9j-5zm"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -188,6 +191,9 @@
                                                 <real key="value" value="1"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="showPicture:" destination="OHN-gY-jTg" eventType="touchUpInside" id="Rws-4k-ek7"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ng0-hL-spQ" customClass="ButtonDesignable" customModule="Retail_Assistant" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="64"/>
@@ -201,6 +207,9 @@
                                                 <real key="value" value="1"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="showFullscreen:" destination="OHN-gY-jTg" eventType="touchUpInside" id="pDk-P2-IEb"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bFE-Lf-jBI" customClass="ButtonDesignable" customModule="Retail_Assistant" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="63" width="414" height="61"/>
@@ -214,6 +223,9 @@
                                                 <real key="value" value="1"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="takePicture:" destination="OHN-gY-jTg" eventType="touchUpInside" id="cgU-5U-TMa"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>

@@ -1,22 +1,66 @@
 import UIKit
 import RealmSwift
 
-class ProductDisplayViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class ProductDisplayViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, ModalDelegate {
     
     @IBOutlet weak var displayTableView: UITableView!
     @IBOutlet weak var itemImage: UIImageView!
     @IBOutlet weak var receiptImage: UIImageView!
     var product : RetailProduct?
+    var currentImageView : UIImageView?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         loadProductView()
         setupTable()
+        let adjustForTabbarInsets: UIEdgeInsets = UIEdgeInsetsMake(0, 0, self.tabBarController!.tabBar.frame.height, 0)
+        displayTableView.contentInset = adjustForTabbarInsets
+        displayTableView.scrollIndicatorInsets = adjustForTabbarInsets
+    }
+    
+    func showFullscreen() {
+        let imageView = currentImageView
+        let newImageView = UIImageView(image: imageView?.image)
+        
+        newImageView.frame = CGRect(x: 0,y: 0,width: 450, height: 600)
+        newImageView.center = (imageView?.superview?.center)!
+        
+        newImageView.backgroundColor = .black
+        newImageView.isUserInteractionEnabled = true
+        
+        let tap = UITapGestureRecognizer(target: self, action: #selector(dismissFullscreenImage))
+        newImageView.addGestureRecognizer(tap)
+        self.view.addSubview(newImageView)
+        
+        self.navigationController?.isNavigationBarHidden = true
+        self.tabBarController?.tabBar.isHidden = true
+    }
+    
+    func takePicture() {
+        
+    }
+    
+    func showPicture() {
+        
+    }
+    
+    func setImage(img: UIImageView) {
+        currentImageView = img
+    }
+    
+    @IBAction func showModalR(_ sender: Any) {
+        let modalVC = self.storyboard?.instantiateViewController(withIdentifier: "modalView") as! PhotoModalViewController
+        modalVC.modalPresentationStyle = .overCurrentContext
+        modalVC.delegate = self
+        modalVC.imageView = receiptImage
+        self.tabBarController?.present(modalVC, animated:true, completion: nil)
     }
     
     @IBAction func showModal(_ sender: Any) {
         let modalVC = self.storyboard?.instantiateViewController(withIdentifier: "modalView") as! PhotoModalViewController
         modalVC.modalPresentationStyle = .overCurrentContext
+        modalVC.delegate = self
+        modalVC.imageView = itemImage
         self.tabBarController?.present(modalVC, animated:true, completion: nil)
     }
     
@@ -30,7 +74,7 @@ class ProductDisplayViewController: UIViewController, UITableViewDelegate, UITab
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 17
+        return 16
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -184,21 +228,7 @@ class ProductDisplayViewController: UIViewController, UITableViewDelegate, UITab
     }
     
     @IBAction func imageTapped(_ sender: UITapGestureRecognizer) {
-//        let imageView = sender.view as! UIImageView
-//        let newImageView = UIImageView(image: imageView.image)
-// 
-//        newImageView.frame = CGRect(x: 0,y: 0,width: 450, height: 600)
-//        newImageView.center = (imageView.superview?.center)!
-//        
-//        newImageView.backgroundColor = .black
-//        newImageView.isUserInteractionEnabled = true
-//        
-//        let tap = UITapGestureRecognizer(target: self, action: #selector(dismissFullscreenImage))
-//        newImageView.addGestureRecognizer(tap)
-//        self.view.addSubview(newImageView)
-//        
-//        self.navigationController?.isNavigationBarHidden = true
-//        self.tabBarController?.tabBar.isHidden = true
+
     }
     
     func dismissFullscreenImage(_ sender: UITapGestureRecognizer) {
