@@ -14,6 +14,12 @@ class ProductDisplayViewController: UIViewController, UITableViewDelegate, UITab
         setupTable()
     }
     
+    @IBAction func showModal(_ sender: Any) {
+        let modalVC = self.storyboard?.instantiateViewController(withIdentifier: "modalView") as! PhotoModalViewController
+        modalVC.modalPresentationStyle = .overCurrentContext
+        self.tabBarController?.present(modalVC, animated:true, completion: nil)
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.reloadTable()
