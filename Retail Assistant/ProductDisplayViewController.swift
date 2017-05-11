@@ -1,13 +1,31 @@
 import UIKit
 import RealmSwift
 
-class ProductDisplayViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, ModalDelegate {
+class AlertHelper {
+    func showAlert(fromController controller: UIViewController, baseController base: UIViewController, image img: UIImage) {
+        let alert = UIAlertController(title: "Isabella", message: "Would you like to save this picture ma?", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Yes", style: UIAlertActionStyle.default, handler: {(action:UIAlertAction!) in
+            let imageData = UIImageJPEGRepresentation(img, 1.0)
+            let compressedImage = UIImage(data: imageData!)
+            UIImageWriteToSavedPhotosAlbum(compressedImage!, nil, nil, nil)
+            base.dismiss(animated: true, completion: nil)
+        }))
+        alert.addAction(UIAlertAction(title: "No", style: UIAlertActionStyle.default, handler: {(action:UIAlertAction!) in
+            base.dismiss(animated: true, completion: nil)
+        }))
+        
+        controller.present(alert, animated: true, completion: nil)
+    }
+}
+
+class ProductDisplayViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, ModalDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     @IBOutlet weak var displayTableView: UITableView!
     @IBOutlet weak var itemImage: UIImageView!
     @IBOutlet weak var receiptImage: UIImageView!
-    var product : RetailProduct?
+    var product : RetailProduct = RetailProduct()
     var currentImageView : UIImageView?
+    var isCameraImage : Bool?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,11 +55,49 @@ class ProductDisplayViewController: UIViewController, UITableViewDelegate, UITab
     }
     
     func takePicture() {
-        
+        print("2")
+        if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.camera) {
+            isCameraImage = true
+            let imagePicker = UIImagePickerController()
+            imagePicker.delegate = self
+            imagePicker.sourceType = UIImagePickerControllerSourceType.camera
+            imagePicker.allowsEditing = false
+            self.present(imagePicker, animated: true, completion: nil)
+        }
     }
     
     func showPicture() {
-        
+        if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.photoLibrary) {
+            isCameraImage = false
+            let imagePicker = UIImagePickerController()
+            imagePicker.delegate = self
+            imagePicker.sourceType = UIImagePickerControllerSourceType.photoLibrary
+            imagePicker.allowsEditing = true
+            self.present(imagePicker, animated: true, completion: nil)
+        }
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        if let image = info[UIImagePickerControllerOriginalImage] as? UIImage
+        {
+            let alertHelper = AlertHelper()
+            if (currentImageView?.isEqual(itemImage))! {
+                itemImage.image = image
+                saveImageToDB()
+            } else {
+                receiptImage.image = image
+                saveReceiptToDB()
+            }
+            if (isCameraImage)! {
+                alertHelper.showAlert(fromController: picker, baseController: self, image: image)
+            } else {
+                dismiss(animated: true, completion: nil)
+            }
+        } else {
+            let alert = UIAlertController(title: "Alert", message: "We had an issue in the image conversion process...", preferredStyle: UIAlertControllerStyle.alert)
+            alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+            picker.present(alert, animated: true, completion: nil)
+        }
     }
     
     func setImage(img: UIImageView) {
@@ -83,13 +139,13 @@ class ProductDisplayViewController: UIViewController, UITableViewDelegate, UITab
         if (cell == nil) {
             cell = UITableViewCell(style: .subtitle, reuseIdentifier: identifier)
         }
-
+        
         cell?.textLabel?.text = getCellText(count: indexPath.row)
         cell?.detailTextLabel?.text = getCellDetailText(count: indexPath.row)
         cell?.textLabel?.textColor = .black
         cell?.textLabel?.font = cell?.textLabel?.font.withSize(12)
-
-
+        
+        
         cell?.detailTextLabel?.textColor = UIColor(red:0.31, green:0.77, blue:0.76, alpha:1.0)
         cell?.detailTextLabel?.font = cell?.detailTextLabel?.font.withSize(20)
         cell?.accessoryType = .disclosureIndicator
@@ -131,6 +187,8 @@ class ProductDisplayViewController: UIViewController, UITableViewDelegate, UITab
         case 14:
             return "Actual Profit"
         case 15:
+            
+            
             return "Return Date"
         default:
             print("I effed up somewhere")
@@ -141,27 +199,27 @@ class ProductDisplayViewController: UIViewController, UITableViewDelegate, UITab
     func getCellDetailText(count: Int) -> String {
         switch count {
         case 0:
-            return (product?.type)!
+            return (product.type)
         case 1:
-            return "$" + String(format: "%.2f", (product?.originalPrice)!)
+            return "$" + String(format: "%.2f", (product.originalPrice))
         case 2:
-            return "$" + String(format: "%.2f", (product?.purchasePrice)!)
+            return "$" + String(format: "%.2f", (product.purchasePrice))
         case 3:
-            return "$" + String(format: "%.2f", (product?.estSalePrice)!)
+            return "$" + String(format: "%.2f", (product.estSalePrice))
         case 4:
-            return "$" + String(format: "%.2f", (product?.estProfit)!)
+            return "$" + String(format: "%.2f", (product.estProfit))
         case 5:
-            return (product?.quality)!
+            return (product.quality)
         case 6:
-            return (product?.brand)!
+            return (product.brand)
         case 7:
-            if (product?.dustBag)! {
+            if (product.dustBag) {
                 return "Yes"
             } else {
                 return "No"
             }
         case 8:
-            if (product?.originalBox)! {
+            if (product.originalBox) {
                 return "Yes"
             } else {
                 return "No"
@@ -169,17 +227,17 @@ class ProductDisplayViewController: UIViewController, UITableViewDelegate, UITab
         case 9:
             let formatter = DateFormatter()
             formatter.dateFormat = "MM/dd/yyyy"
-            return formatter.string(from: (product!.dateOfPurchase))
+            return formatter.string(from: (product.dateOfPurchase))
         case 10:
-            return (product?.styleName)!
+            return (product.styleName)
         case 11:
-            return (product?.size)!
+            return (product.size)
         case 12:
-            return (product?.store)!
+            return (product.store)
         case 13:
-            return "$" + String(format: "%.2f", (product?.salePrice)!)
+            return "$" + String(format: "%.2f", (product.salePrice))
         case 14:
-            return "$" + String(format: "%.2f", (product?.salePrice)! - (product?.purchasePrice)!)
+            return "$" + String(format: "%.2f", (product.salePrice) - (product.purchasePrice))
         case 15:
             return getReturnDate()
         default:
@@ -193,7 +251,7 @@ class ProductDisplayViewController: UIViewController, UITableViewDelegate, UITab
             let viewController = storyboard?.instantiateViewController(withIdentifier: "productEditView") as! ProductEditViewController
             viewController.propertyEdited = displayTableView.cellForRow(at: indexPath)?.textLabel?.text
             viewController.index = indexPath.row
-            viewController.productId = (product?.id)!
+            viewController.productId = (product.id)
             self.navigationController?.pushViewController(viewController, animated: true)
         }
     }
@@ -208,10 +266,10 @@ class ProductDisplayViewController: UIViewController, UITableViewDelegate, UITab
     }
     
     func loadProductView() {
-        itemImage.image = getImage(id: (product?.id)!,isImage: true)
+        itemImage.image = getImage(id: (product.id),isImage: true)
         itemImage.contentMode = .scaleAspectFit
         itemImage.backgroundColor = .gray
-        receiptImage.image = getImage(id: (product?.id)!, isImage: false)
+        receiptImage.image = getImage(id: (product.id), isImage: false)
         receiptImage.contentMode = .scaleAspectFit
         receiptImage.backgroundColor = .gray
         let pictureTap = UITapGestureRecognizer(target: self, action: #selector(self.imageTapped(_:)))
@@ -222,13 +280,13 @@ class ProductDisplayViewController: UIViewController, UITableViewDelegate, UITab
         receiptImage.addGestureRecognizer(pictureTap2)
         receiptImage.isUserInteractionEnabled = true
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
     
     @IBAction func imageTapped(_ sender: UITapGestureRecognizer) {
-
+        
     }
     
     func dismissFullscreenImage(_ sender: UITapGestureRecognizer) {
@@ -256,7 +314,7 @@ class ProductDisplayViewController: UIViewController, UITableViewDelegate, UITab
     }
     
     func getReturnDate() -> String {
-        let start = product?.dateOfPurchase
+        let start = product.dateOfPurchase
         let days = getDaysFromStore()
         
         if (days < 0) {
@@ -265,19 +323,48 @@ class ProductDisplayViewController: UIViewController, UITableViewDelegate, UITab
         
         let formatter = DateFormatter()
         formatter.dateFormat = "MM/dd/yyyy"
-        return formatter.string(from: Calendar.current.date(byAdding: .day, value: days, to: start!)!)
+        return formatter.string(from: Calendar.current.date(byAdding: .day, value: days, to: start)!)
     }
     
     func getDaysFromStore() -> Int {
-        if (product?.store == "Bloomingdale's") {
+        if (product.store == "Bloomingdale's") {
             return -1
         }
-        else if (product?.store == "Nordstrom Rack") {
+        else if (product.store == "Nordstrom Rack") {
             return 90
-        } else if (product?.store == "Neiman Marcus") {
+        } else if (product.store == "Neiman Marcus") {
             return 60
         } else {
             return 30
         }
     }
+    
+    func saveImageToDB() {
+        do {
+            let realm = try Realm()
+            try realm.write {
+                let data = UIImageJPEGRepresentation(itemImage.image!, 1.0) as NSData?
+                let documentsPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0] as NSString
+                let writePath = documentsPath.appendingPathComponent("ret-assist-" + String(product.id) + ".jpg")
+                data?.write(toFile: writePath, atomically: true)
+                let itemImageUrl = writePath as NSString
+                product.imagePath = itemImageUrl
+            }
+        } catch {}
+    }
+    
+    func saveReceiptToDB() {
+        do {
+            let realm = try Realm()
+            try realm.write {
+                let data = UIImageJPEGRepresentation(receiptImage.image!, 1.0) as NSData?
+                let documentsPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0] as NSString
+                let writePath = documentsPath.appendingPathComponent("ret-assist-" + String(product.id) + "-receipt.jpg")
+                data?.write(toFile: writePath, atomically: true)
+                let receiptImageUrl = writePath as NSString
+                product.receiptPath = receiptImageUrl
+            }
+        } catch {}
+    }
+    
 }

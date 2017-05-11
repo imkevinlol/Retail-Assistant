@@ -16,7 +16,7 @@ class ProductEditViewController: UIViewController, UIPickerViewDelegate, UIPicke
     
     var typeList = ["Clothing", "Bag", "Shoes", "Accessory", "Other"]
     var qualityList = ["Trash", "Poor", "Average", "Good", "Excellent", "Unknown"]
-    var brandList = ["Stuart Weitzman", "Jimmy Choo", "Tory Burch", "Charlotte Olympia", "Manono Blahnik", "Valentino", "Chanel", "Christian Dior", "Miu Miu", "Bottega Meneta", "Prada", "Christian Louboutin", "Salvatore Ferragamo", "Kate Spade", "Vince", "Chloe", "Celine", "Fendi", "Gucci", "Saint Laurent", "Rebecca Taylor", "Alexander McQueen", "Alexander Wang", "Burberry", "Coach", "Other"]
+    var brandList = ["Stuart Weitzman", "Jimmy Choo", "Tory Burch", "Charlotte Olympia", "Manono Blahnik", "Valentino", "Chanel", "Christian Dior", "Miu Miu", "Bottega Veneta", "Prada", "Christian Louboutin", "Salvatore Ferragamo", "Kate Spade", "Vince", "Chloe", "Celine", "Fendi", "Gucci", "Saint Laurent", "Rebecca Taylor", "Alexander McQueen", "Alexander Wang", "Burberry", "Coach", "Other"]
     var storeList = ["Nordstrom Rack", "Neiman Marcus", "Saks", "T.J. Maxx", "Poshmark", "Tradesy", "Marshalls", "Bloomingdale's", "Other"]
     var boolList = ["Yes", "No"]
     var imageSetList = ["View Fullscreen", "New Picture", "Choose Picture"]
@@ -151,7 +151,7 @@ class ProductEditViewController: UIViewController, UIPickerViewDelegate, UIPicke
         for aViewController:UIViewController in viewControllers {
             if aViewController.isKind(of: ProductDisplayViewController.self) {
                 let view : ProductDisplayViewController = aViewController as! ProductDisplayViewController
-                view.product = product
+                view.product = product!
                 _ = self.navigationController?.popToViewController(aViewController, animated: true)
             }
         }

@@ -27,27 +27,24 @@ class PhotoModalViewController: UIViewController {
     }
 
     @IBAction func showFullscreen(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
         if let delegate = self.delegate {
             delegate.showFullscreen()
         }
-        
-        dismiss(animated: true, completion: nil)
     }
     
     @IBAction func takePicture(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
         if let delegate = self.delegate {
             delegate.takePicture()
         }
-        
-        dismiss(animated: true, completion: nil)
     }
     
     @IBAction func showPicture(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
         if let delegate = self.delegate {
             delegate.showPicture()
         }
-        
-        dismiss(animated: true, completion: nil)
     }
     
     @IBAction func dismissFullscreen(_ sender: Any) {

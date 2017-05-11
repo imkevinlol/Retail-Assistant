@@ -46,7 +46,7 @@ class ProductViewController: UIViewController, UITableViewDelegate, UITableViewD
         
         let formatter = DateFormatter()
         formatter.dateFormat = "MM/dd/yyyy"
-        let botVal = "PD: " +  formatter.string(from: currentProduct.dateOfPurchase) + " | PP: $" + String(format: "%.2f", (currentProduct.purchasePrice))
+        let botVal = "PD: " +  formatter.string(from: currentProduct.dateOfPurchase) + " | PP: " + String(format: "%.2f", (currentProduct.purchasePrice))
         let topVal = getTypeId(type: currentProduct.type, id: currentProduct.id) + " | " + currentProduct.brand + " | " + currentProduct.size
         cell?.textLabel?.text = topVal
         cell?.detailTextLabel?.text = botVal

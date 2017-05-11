@@ -13,9 +13,12 @@
 		112EFA9A1EBFE1FF0056C54A /* ProductDisplayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 112EFA991EBFE1FF0056C54A /* ProductDisplayViewController.swift */; };
 		115A40481EC1344800C668BB /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = 115A40471EC1344800C668BB /* File.swift */; };
 		115A404E1EC1FA3B00C668BB /* ProductEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 115A404D1EC1FA3B00C668BB /* ProductEditViewController.swift */; };
-		115A40501EC252CE00C668BB /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 115A404F1EC252CE00C668BB /* InfoViewController.swift */; };
 		115A405A1EC2906D00C668BB /* ButtonDesignable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 115A40591EC2906D00C668BB /* ButtonDesignable.swift */; };
 		115A405C1EC2996300C668BB /* PhotoModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 115A405B1EC2996300C668BB /* PhotoModalViewController.swift */; };
+		115A40601EC3D01900C668BB /* StatusTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 115A405F1EC3D01900C668BB /* StatusTableView.swift */; };
+		115A40621EC3D48000C668BB /* StatusTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 115A40611EC3D48000C668BB /* StatusTableViewController.swift */; };
+		115A40661EC40B5600C668BB /* ReportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 115A40651EC40B5600C668BB /* ReportViewController.swift */; };
+		115A40681EC4194600C668BB /* StatementTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 115A40671EC4194600C668BB /* StatementTableViewCell.swift */; };
 		11D5A9371EBEDA460031A017 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11D5A9361EBEDA460031A017 /* AppDelegate.swift */; };
 		11D5A93E1EBEDA460031A017 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 11D5A93C1EBEDA460031A017 /* Main.storyboard */; };
 		11D5A9401EBEDA470031A017 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 11D5A93F1EBEDA470031A017 /* Assets.xcassets */; };
@@ -53,9 +56,12 @@
 		112EFA991EBFE1FF0056C54A /* ProductDisplayViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductDisplayViewController.swift; sourceTree = "<group>"; };
 		115A40471EC1344800C668BB /* File.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
 		115A404D1EC1FA3B00C668BB /* ProductEditViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductEditViewController.swift; sourceTree = "<group>"; };
-		115A404F1EC252CE00C668BB /* InfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
 		115A40591EC2906D00C668BB /* ButtonDesignable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ButtonDesignable.swift; sourceTree = "<group>"; };
 		115A405B1EC2996300C668BB /* PhotoModalViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PhotoModalViewController.swift; path = ../PhotoModalViewController.swift; sourceTree = "<group>"; };
+		115A405F1EC3D01900C668BB /* StatusTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusTableView.swift; sourceTree = "<group>"; };
+		115A40611EC3D48000C668BB /* StatusTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusTableViewController.swift; sourceTree = "<group>"; };
+		115A40651EC40B5600C668BB /* ReportViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReportViewController.swift; sourceTree = "<group>"; };
+		115A40671EC4194600C668BB /* StatementTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatementTableViewCell.swift; sourceTree = "<group>"; };
 		11D5A9331EBEDA460031A017 /* Retail Assistant.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Retail Assistant.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		11D5A9361EBEDA460031A017 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		11D5A93D1EBEDA460031A017 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -156,13 +162,16 @@
 				112EFA941EBEEA8A0056C54A /* EntryViewController.swift */,
 				112EFA991EBFE1FF0056C54A /* ProductDisplayViewController.swift */,
 				115A404D1EC1FA3B00C668BB /* ProductEditViewController.swift */,
-				115A404F1EC252CE00C668BB /* InfoViewController.swift */,
 				115A405B1EC2996300C668BB /* PhotoModalViewController.swift */,
+				115A405F1EC3D01900C668BB /* StatusTableView.swift */,
+				115A40591EC2906D00C668BB /* ButtonDesignable.swift */,
+				115A40611EC3D48000C668BB /* StatusTableViewController.swift */,
+				115A40651EC40B5600C668BB /* ReportViewController.swift */,
+				115A40671EC4194600C668BB /* StatementTableViewCell.swift */,
 				11D5A93C1EBEDA460031A017 /* Main.storyboard */,
 				11D5A93F1EBEDA470031A017 /* Assets.xcassets */,
 				11D5A9411EBEDA470031A017 /* LaunchScreen.storyboard */,
 				11D5A9441EBEDA470031A017 /* Info.plist */,
-				115A40591EC2906D00C668BB /* ButtonDesignable.swift */,
 			);
 			path = "Retail Assistant";
 			sourceTree = "<group>";
@@ -496,14 +505,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				115A404E1EC1FA3B00C668BB /* ProductEditViewController.swift in Sources */,
+				115A40681EC4194600C668BB /* StatementTableViewCell.swift in Sources */,
+				115A40661EC40B5600C668BB /* ReportViewController.swift in Sources */,
 				11D5A9371EBEDA460031A017 /* AppDelegate.swift in Sources */,
 				112EFA951EBEEA8A0056C54A /* EntryViewController.swift in Sources */,
+				115A40601EC3D01900C668BB /* StatusTableView.swift in Sources */,
 				115A405A1EC2906D00C668BB /* ButtonDesignable.swift in Sources */,
 				112EFA981EBF920D0056C54A /* RetailProduct.swift in Sources */,
-				115A40501EC252CE00C668BB /* InfoViewController.swift in Sources */,
 				11D5A9671EBEDDC20031A017 /* CalculatorViewController.swift in Sources */,
 				112EFA9A1EBFE1FF0056C54A /* ProductDisplayViewController.swift in Sources */,
 				115A405C1EC2996300C668BB /* PhotoModalViewController.swift in Sources */,
+				115A40621EC3D48000C668BB /* StatusTableViewController.swift in Sources */,
 				115A40481EC1344800C668BB /* File.swift in Sources */,
 				112EFA931EBEE2AB0056C54A /* ProductViewController.swift in Sources */,
 			);

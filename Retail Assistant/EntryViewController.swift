@@ -27,7 +27,7 @@ class EntryViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
     
     var typeList = ["Clothing", "Bag", "Shoes", "Accessory", "Other"]
     var qualityList = ["Trash", "Poor", "Average", "Good", "Excellent", "Unknown"]
-    var brandList = ["Stuart Weitzman", "Jimmy Choo", "Tory Burch", "Charlotte Olympia", "Manono Blahnik", "Valentino", "Chanel", "Christian Dior", "Miu Miu", "Bottega Meneta", "Prada", "Christian Louboutin", "Salvatore Ferragamo", "Kate Spade", "Vince", "Chloe", "Celine", "Fendi", "Gucci", "Saint Laurent", "Rebecca Taylor", "Alexander McQueen", "Alexander Wang", "Burberry", "Coach", "Other"]
+    var brandList = ["Stuart Weitzman", "Jimmy Choo", "Tory Burch", "Charlotte Olympia", "Manono Blahnik", "Valentino", "Chanel", "Christian Dior", "Miu Miu", "Bottega Veneta", "Prada", "Christian Louboutin", "Salvatore Ferragamo", "Kate Spade", "Vince", "Chloe", "Celine", "Fendi", "Gucci", "Saint Laurent", "Rebecca Taylor", "Alexander McQueen", "Alexander Wang", "Burberry", "Coach", "Other"]
     var storeList = ["Nordstrom Rack", "Neiman Marcus", "Saks", "T.J. Maxx", "Poshmark", "Tradesy", "Marshalls", "Bloomingdale's", "Other"]
     var isImage : Bool?
     
