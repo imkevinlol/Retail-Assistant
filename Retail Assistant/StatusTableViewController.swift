@@ -30,7 +30,6 @@ class StatusTableViewController: UITableViewController {
     }
     
     @IBAction func cellProfitMonthTapped(_ sender: UITapGestureRecognizer) {
-        print("sender\(sender)")
         clearData()
         let reportView = storyboard?.instantiateViewController(withIdentifier: "reportVC") as! ReportViewController
         reportView.bottomHeader = "PROFIT STATEMENT"
