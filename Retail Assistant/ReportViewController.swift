@@ -10,6 +10,7 @@ class ReportViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     var storeList = [String](), brandList = [String](), styleList = [String](), topAmountList = [String](), bottomAmountList = [String]()
     var topHeader = "", bottomHeader = "", totalAmount = "", month = ""
+    var textColor: UIColor = UIColor.green
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,6 +26,7 @@ class ReportViewController: UIViewController, UITableViewDelegate, UITableViewDa
         self.title = month
         statementTableView.delegate = self
         statementTableView.dataSource = self
+        totalButton.setTitleColor(textColor, for: .normal)
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -41,6 +43,7 @@ class ReportViewController: UIViewController, UITableViewDelegate, UITableViewDa
             cell.styleNameLabel.text = styleList[indexPath.row]
             cell.topLabel.text = topAmountList[indexPath.row]
             cell.bottomLabel.text = bottomAmountList[indexPath.row]
+            cell.topLabel.textColor = textColor
         }
         
         return cell

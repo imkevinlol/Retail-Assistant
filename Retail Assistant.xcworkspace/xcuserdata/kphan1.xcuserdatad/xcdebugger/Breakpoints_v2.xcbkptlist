@@ -358,11 +358,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Retail Assistant/StatusTableViewController.swift"
-            timestampString = "516226683.612746"
+            timestampString = "516236949.716809"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "125"
-            endingLineNumber = "125"
+            startingLineNumber = "129"
+            endingLineNumber = "129"
             landmarkName = "getTotalSpending(isYTD:)"
             landmarkType = "7">
          </BreakpointContent>
