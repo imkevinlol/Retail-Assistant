@@ -1,11 +1,12 @@
 import UIKit
 import RealmSwift
 
-class ProductViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class ProductViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate, UISearchDisplayDelegate {
     
     @IBOutlet weak var productTableView: UITableView!
     
     var datasource : Results<RetailProduct>!
+    var searchResult:Array<RetailProduct>?
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -114,5 +115,20 @@ class ProductViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     func formatSize(size: String) -> String {
         return "Size: " + size
+    }
+    
+    func filterContentForSearchText(searchText: String) {
+        if self.datasource == nil {
+            self.searchResult = nil
+            return
+        }
+        self.searchResult = self.datasource!.filter({( aProduct: RetailProduct) -> Bool in
+            return aProduct.store.lowercased().range(of: searchText.lowercased()) != nil
+        })
+    }
+    
+    func searchDisplayController(_ controller: UISearchDisplayController, shouldReloadTableForSearch searchString: String?) -> Bool {
+        self.filterContentForSearchText(searchText: searchString!)
+        return true
     }
 }
