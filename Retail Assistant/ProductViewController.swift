@@ -16,6 +16,8 @@ class ProductViewController: UIViewController, UITableViewDelegate, UITableViewD
         super.viewDidLoad()
         self.setupTable()
         self.reloadTable()
+        navigationController?.navigationBar.barStyle = UIBarStyle.black
+        tabBarController?.tabBar.barStyle = UIBarStyle.black
     }
     
     func reloadTable() {
@@ -30,31 +32,41 @@ class ProductViewController: UIViewController, UITableViewDelegate, UITableViewD
         productTableView.delegate = self
         productTableView.dataSource = self
     }
-    
+
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 10
+    }
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
         return datasource.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let identifier: String = "myCell"
-        var cell = productTableView.dequeueReusableCell(withIdentifier: identifier)
-        if (cell == nil) {
-            cell = UITableViewCell(style: .subtitle, reuseIdentifier: identifier)
-        }
+        let cell = productTableView.dequeueReusableCell(withIdentifier: "productCell") as! ProductDisplayTableViewCell
         
-        let currentProduct = datasource[indexPath.row]
+        let currentProduct = datasource[indexPath.section]
         
         let formatter = DateFormatter()
         formatter.dateFormat = "MM/dd/yyyy"
-        let botVal = "PD: " +  formatter.string(from: currentProduct.dateOfPurchase) + " | PP: " + String(format: "%.2f", (currentProduct.purchasePrice))
-        let topVal = getTypeId(type: currentProduct.type, id: currentProduct.id) + " | " + currentProduct.brand + " | " + currentProduct.size
-        cell?.textLabel?.text = topVal
-        cell?.detailTextLabel?.text = botVal
+        cell.dateOfPurchaseLabel.text = formatter.string(from: currentProduct.dateOfPurchase)
+        cell.purchasePriceLabel.text = String(format: "$%.2f", (currentProduct.purchasePrice))
+        cell.identifierLabel.text = getTypeId(type: currentProduct.type, id: currentProduct.id)
+        
+        cell.brandLabel.text = currentProduct.brand
+        cell.sizeLabel.text = formatSize(size: currentProduct.size)
         if (currentProduct.imagePath != "") {
-            cell?.imageView?.image = getImage(id: currentProduct.id)
+            cell.imageVIew.image = getImage(id: currentProduct.id)
         }
         
-        return cell!
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 100
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -73,10 +85,6 @@ class ProductViewController: UIViewController, UITableViewDelegate, UITableViewD
             } catch{}
             productTableView.deleteRows(at: [indexPath as IndexPath], with: UITableViewRowAnimation.automatic)
         }
-    }
-    
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 100
     }
     
     func getImage(id: Int) -> UIImage {
@@ -100,20 +108,11 @@ class ProductViewController: UIViewController, UITableViewDelegate, UITableViewD
         super.didReceiveMemoryWarning()
     }
     
-    @IBAction func editBtnPressed(_ sender: Any) {
-        if(productTableView.isEditing == false) {
-            self.navigationItem.leftBarButtonItem?.title = "Save"
-            productTableView.isEditing = true
-            self.navigationItem.rightBarButtonItem?.isEnabled = false
-        } else {
-            self.navigationItem.leftBarButtonItem?.title = "Edit"
-            productTableView.isEditing = false
-            self.navigationItem.rightBarButtonItem?.isEnabled = true
-            
-        }
-    }
-    
     @IBAction func actionToEntryVC(_ sender: Any) {
         performSegue(withIdentifier: "toEntryVC", sender: nil)
+    }
+    
+    func formatSize(size: String) -> String {
+        return "Size: " + size
     }
 }

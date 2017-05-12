@@ -19,6 +19,7 @@
 		115A40621EC3D48000C668BB /* StatusTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 115A40611EC3D48000C668BB /* StatusTableViewController.swift */; };
 		115A40661EC40B5600C668BB /* ReportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 115A40651EC40B5600C668BB /* ReportViewController.swift */; };
 		115A40681EC4194600C668BB /* StatementTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 115A40671EC4194600C668BB /* StatementTableViewCell.swift */; };
+		115A406A1EC52D6700C668BB /* ProductDisplayTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 115A40691EC52D6600C668BB /* ProductDisplayTableViewCell.swift */; };
 		11D5A9371EBEDA460031A017 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11D5A9361EBEDA460031A017 /* AppDelegate.swift */; };
 		11D5A93E1EBEDA460031A017 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 11D5A93C1EBEDA460031A017 /* Main.storyboard */; };
 		11D5A9401EBEDA470031A017 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 11D5A93F1EBEDA470031A017 /* Assets.xcassets */; };
@@ -62,6 +63,7 @@
 		115A40611EC3D48000C668BB /* StatusTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusTableViewController.swift; sourceTree = "<group>"; };
 		115A40651EC40B5600C668BB /* ReportViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReportViewController.swift; sourceTree = "<group>"; };
 		115A40671EC4194600C668BB /* StatementTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatementTableViewCell.swift; sourceTree = "<group>"; };
+		115A40691EC52D6600C668BB /* ProductDisplayTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductDisplayTableViewCell.swift; sourceTree = "<group>"; };
 		11D5A9331EBEDA460031A017 /* Retail Assistant.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Retail Assistant.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		11D5A9361EBEDA460031A017 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		11D5A93D1EBEDA460031A017 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -168,6 +170,7 @@
 				115A40611EC3D48000C668BB /* StatusTableViewController.swift */,
 				115A40651EC40B5600C668BB /* ReportViewController.swift */,
 				115A40671EC4194600C668BB /* StatementTableViewCell.swift */,
+				115A40691EC52D6600C668BB /* ProductDisplayTableViewCell.swift */,
 				11D5A93C1EBEDA460031A017 /* Main.storyboard */,
 				11D5A93F1EBEDA470031A017 /* Assets.xcassets */,
 				11D5A9411EBEDA470031A017 /* LaunchScreen.storyboard */,
@@ -504,6 +507,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				115A406A1EC52D6700C668BB /* ProductDisplayTableViewCell.swift in Sources */,
 				115A404E1EC1FA3B00C668BB /* ProductEditViewController.swift in Sources */,
 				115A40681EC4194600C668BB /* StatementTableViewCell.swift in Sources */,
 				115A40661EC40B5600C668BB /* ReportViewController.swift in Sources */,

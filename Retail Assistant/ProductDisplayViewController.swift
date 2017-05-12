@@ -55,7 +55,6 @@ class ProductDisplayViewController: UIViewController, UITableViewDelegate, UITab
     }
     
     func takePicture() {
-        print("2")
         if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.camera) {
             isCameraImage = true
             let imagePicker = UIImagePickerController()
