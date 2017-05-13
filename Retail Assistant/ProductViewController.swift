@@ -45,6 +45,11 @@ class ProductViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
+//        if productTableView == self.searchDisplayController!.searchResultsTableView {
+//            return self.speciesSearchResults?.count ?? 0
+//        } else {
+//            return self.species?.count ?? 0
+//        }
         return datasource.count
     }
     
