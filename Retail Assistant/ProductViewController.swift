@@ -27,6 +27,8 @@ class ProductViewController: UIViewController, UITableViewDelegate, UITableViewD
             datasource = realm.objects(RetailProduct.self)
             productTableView?.reloadData()
         } catch {}
+        
+        datasource = datasource!.sorted(byKeyPath: "dateOfPurchase", ascending: false)
     }
     
     func setupTable() {
@@ -59,6 +61,7 @@ class ProductViewController: UIViewController, UITableViewDelegate, UITableViewD
         
         cell.brandLabel.text = currentProduct.brand
         cell.sizeLabel.text = formatSize(size: currentProduct.size)
+        cell.styleLabel.text = currentProduct.styleName
         if (currentProduct.imagePath != "") {
             cell.imageVIew.image = getImage(id: currentProduct.id)
         }
@@ -72,7 +75,7 @@ class ProductViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let viewController = storyboard?.instantiateViewController(withIdentifier: "productView") as! ProductDisplayViewController
-        viewController.product = datasource[indexPath.row]
+        viewController.product = datasource[indexPath.section]
         self.navigationController?.pushViewController(viewController, animated: true)
     }
     
@@ -81,10 +84,11 @@ class ProductViewController: UIViewController, UITableViewDelegate, UITableViewD
             do {
                 let realm = try Realm()
                 try! realm.write {
-                    realm.delete(datasource[indexPath.row])
+                    realm.delete(datasource[indexPath.section])
                 }
             } catch{}
-            productTableView.deleteRows(at: [indexPath as IndexPath], with: UITableViewRowAnimation.automatic)
+            
+            productTableView.deleteSections(NSIndexSet(index: indexPath.section) as IndexSet, with: .fade)
         }
     }
     

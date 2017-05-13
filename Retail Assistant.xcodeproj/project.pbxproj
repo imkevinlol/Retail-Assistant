@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		112977C61EC6A4B900A4C97D /* ImageDisplayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 112977C51EC6A4B900A4C97D /* ImageDisplayViewController.swift */; };
 		112EFA931EBEE2AB0056C54A /* ProductViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 112EFA921EBEE2AB0056C54A /* ProductViewController.swift */; };
 		112EFA981EBF920D0056C54A /* RetailProduct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 112EFA971EBF920D0056C54A /* RetailProduct.swift */; };
 		112EFA9A1EBFE1FF0056C54A /* ProductDisplayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 112EFA991EBFE1FF0056C54A /* ProductDisplayViewController.swift */; };
@@ -20,6 +21,8 @@
 		115A40681EC4194600C668BB /* StatementTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 115A40671EC4194600C668BB /* StatementTableViewCell.swift */; };
 		115A406A1EC52D6700C668BB /* ProductDisplayTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 115A40691EC52D6600C668BB /* ProductDisplayTableViewCell.swift */; };
 		115A406C1EC6763E00C668BB /* EntryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 115A406B1EC6763E00C668BB /* EntryTableViewController.swift */; };
+		115A406E1EC67CBF00C668BB /* CategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 115A406D1EC67CBF00C668BB /* CategoryViewController.swift */; };
+		115A40701EC67FDD00C668BB /* CategorySelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 115A406F1EC67FDD00C668BB /* CategorySelectionViewController.swift */; };
 		11D5A9371EBEDA460031A017 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11D5A9361EBEDA460031A017 /* AppDelegate.swift */; };
 		11D5A93E1EBEDA460031A017 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 11D5A93C1EBEDA460031A017 /* Main.storyboard */; };
 		11D5A9401EBEDA470031A017 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 11D5A93F1EBEDA470031A017 /* Assets.xcassets */; };
@@ -51,6 +54,7 @@
 
 /* Begin PBXFileReference section */
 		0DAE95B2AC809492F3E8E748 /* Pods-Retail Assistant.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Retail Assistant.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Retail Assistant/Pods-Retail Assistant.debug.xcconfig"; sourceTree = "<group>"; };
+		112977C51EC6A4B900A4C97D /* ImageDisplayViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageDisplayViewController.swift; sourceTree = "<group>"; };
 		112EFA921EBEE2AB0056C54A /* ProductViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductViewController.swift; sourceTree = "<group>"; };
 		112EFA971EBF920D0056C54A /* RetailProduct.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RetailProduct.swift; sourceTree = "<group>"; };
 		112EFA991EBFE1FF0056C54A /* ProductDisplayViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductDisplayViewController.swift; sourceTree = "<group>"; };
@@ -64,6 +68,8 @@
 		115A40671EC4194600C668BB /* StatementTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatementTableViewCell.swift; sourceTree = "<group>"; };
 		115A40691EC52D6600C668BB /* ProductDisplayTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductDisplayTableViewCell.swift; sourceTree = "<group>"; };
 		115A406B1EC6763E00C668BB /* EntryTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EntryTableViewController.swift; sourceTree = "<group>"; };
+		115A406D1EC67CBF00C668BB /* CategoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryViewController.swift; sourceTree = "<group>"; };
+		115A406F1EC67FDD00C668BB /* CategorySelectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategorySelectionViewController.swift; sourceTree = "<group>"; };
 		11D5A9331EBEDA460031A017 /* Retail Assistant.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Retail Assistant.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		11D5A9361EBEDA460031A017 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		11D5A93D1EBEDA460031A017 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -170,11 +176,14 @@
 				115A40651EC40B5600C668BB /* ReportViewController.swift */,
 				115A40671EC4194600C668BB /* StatementTableViewCell.swift */,
 				115A40691EC52D6600C668BB /* ProductDisplayTableViewCell.swift */,
+				115A406D1EC67CBF00C668BB /* CategoryViewController.swift */,
+				115A406B1EC6763E00C668BB /* EntryTableViewController.swift */,
+				115A406F1EC67FDD00C668BB /* CategorySelectionViewController.swift */,
+				112977C51EC6A4B900A4C97D /* ImageDisplayViewController.swift */,
 				11D5A93C1EBEDA460031A017 /* Main.storyboard */,
 				11D5A93F1EBEDA470031A017 /* Assets.xcassets */,
 				11D5A9411EBEDA470031A017 /* LaunchScreen.storyboard */,
 				11D5A9441EBEDA470031A017 /* Info.plist */,
-				115A406B1EC6763E00C668BB /* EntryTableViewController.swift */,
 			);
 			path = "Retail Assistant";
 			sourceTree = "<group>";
@@ -507,10 +516,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				112977C61EC6A4B900A4C97D /* ImageDisplayViewController.swift in Sources */,
+				115A40701EC67FDD00C668BB /* CategorySelectionViewController.swift in Sources */,
 				115A406A1EC52D6700C668BB /* ProductDisplayTableViewCell.swift in Sources */,
 				115A404E1EC1FA3B00C668BB /* ProductEditViewController.swift in Sources */,
 				115A40681EC4194600C668BB /* StatementTableViewCell.swift in Sources */,
 				115A40661EC40B5600C668BB /* ReportViewController.swift in Sources */,
+				115A406E1EC67CBF00C668BB /* CategoryViewController.swift in Sources */,
 				11D5A9371EBEDA460031A017 /* AppDelegate.swift in Sources */,
 				115A40601EC3D01900C668BB /* StatusTableView.swift in Sources */,
 				115A405A1EC2906D00C668BB /* ButtonDesignable.swift in Sources */,
