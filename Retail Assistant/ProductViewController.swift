@@ -74,7 +74,8 @@ class ProductViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let viewController = storyboard?.instantiateViewController(withIdentifier: "productView") as! ProductDisplayViewController
+        let viewController = storyboard?.instantiateViewController(withIdentifier: "entryView") as! EntryTableViewController
+        viewController.isAddBtnPressed = false
         viewController.product = datasource[indexPath.section]
         self.navigationController?.pushViewController(viewController, animated: true)
     }
@@ -131,8 +132,15 @@ class ProductViewController: UIViewController, UITableViewDelegate, UITableViewD
         })
     }
     
+    @IBAction func addProductBtnPressed(_ sender: Any) {
+        let viewController = storyboard?.instantiateViewController(withIdentifier: "entryView") as! EntryTableViewController
+        self.navigationController?.pushViewController(viewController, animated: true)
+    }
+    
     func searchDisplayController(_ controller: UISearchDisplayController, shouldReloadTableForSearch searchString: String?) -> Bool {
         self.filterContentForSearchText(searchText: searchString!)
         return true
     }
+    
+    
 }

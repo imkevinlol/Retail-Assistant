@@ -35,6 +35,8 @@ class EntryTableViewController: UITableViewController, CategoryModalDelegate, UI
     var currentImageView : UIImageView?
     var datePicker = UIDatePicker()
     let dateFormatter = DateFormatter()
+    var isAddBtnPressed: Bool = true
+    var product: RetailProduct = RetailProduct()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,12 +49,57 @@ class EntryTableViewController: UITableViewController, CategoryModalDelegate, UI
         originalPriceField.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
         purchasePriceField.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
         salePriceField.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
-        estSalePriceField.isUserInteractionEnabled = false
-        estProfitLabel.isUserInteractionEnabled = false
-        profitField.isUserInteractionEnabled = false
-        originalPriceField.keyboardType = .decimalPad
-        purchasePriceField.keyboardType = .decimalPad
-        salePriceField.keyboardType = .decimalPad
+        setupFieldsForEdit()
+    }
+    
+    func setupFieldsForEdit() {
+        if (!isAddBtnPressed) {
+            storeField.text = product.store
+            purchaseDateField.text = dateFormatter.string(from: product.dateOfPurchase)
+            categoryField.text = product.type
+            brandField.text = product.brand
+            styleField.text = product.styleName
+            sizeField.text = product.size
+            qualityField.text = product.quality
+            originalPriceField.text = String(format:"%.2f", product.originalPrice)
+            purchasePriceField.text = String(format:"%.2f", product.purchasePrice)
+            salePriceField.text = String(format:"%.2f", product.salePrice)
+            profitField.text = String(format:"%.2f", product.profit)
+            estSalePriceField.text = String(format:"%.2f", product.estSalePrice)
+            estProfitLabel.text = String(format:"%.2f", product.estProfit)
+            dustBagField.text = getBoolStr(val: product.dustBag)
+            originalBoxField.text = getBoolStr(val: product.originalBox)
+            imageBtn.setTitle("", for: .normal)
+            receiptBtn.setTitle("", for: .normal)
+            itemImage.image = getImage(id: product.id, isImage: true)
+            receiptImage.image = getImage(id: product.id, isImage: false)
+        }
+    }
+    
+    func getBoolStr(val: Bool) -> String {
+        if (val == false) {
+            return "No"
+        } else {
+            return "Yes"
+        }
+    }
+    
+    func getImage(id: Int, isImage: Bool) -> UIImage {
+        let nsDocumentDirectory = FileManager.SearchPathDirectory.documentDirectory
+        let nsUserDomainMask    = FileManager.SearchPathDomainMask.userDomainMask
+        let paths               = NSSearchPathForDirectoriesInDomains(nsDocumentDirectory, nsUserDomainMask, true)
+        if let dirPath          = paths.first
+        {
+            let imageURL : URL?
+            if (isImage) {
+                imageURL = URL(fileURLWithPath: dirPath).appendingPathComponent("ret-assist-" + String(id) + ".jpg")
+            } else {
+                imageURL = URL(fileURLWithPath: dirPath).appendingPathComponent("ret-assist-" + String(id) + "-receipt.jpg")
+            }
+            return UIImage(contentsOfFile: imageURL!.path)!
+        }
+        
+        return UIImage()
     }
     
     func setValueInField(section: Int, row: Int, value: String) {
@@ -179,7 +226,11 @@ class EntryTableViewController: UITableViewController, CategoryModalDelegate, UI
     
     @IBAction func saveBtn(_ sender: Any) {
         if(checkCanSave()) {
-            saveItem()
+            if(isAddBtnPressed) {
+                saveItem()
+            } else {
+                saveItemFromEdit()
+            }
             self.navigationController?.popToRootViewController(animated: true)
         } else {
             let alert = UIAlertController(title: "Alert", message: "Please fill in all fields before saving.", preferredStyle: UIAlertControllerStyle.alert)
@@ -198,52 +249,65 @@ class EntryTableViewController: UITableViewController, CategoryModalDelegate, UI
     }
     
     func saveItem() {
+        do {
+            let realm = try Realm()
+            product.id = ((realm.objects(RetailProduct.self).map{$0.id}.max() ?? 0) + 1)
+            setProduct()
+
+            try realm.write({ () -> Void in
+                realm.add(product)
+                print("Product \(product.id) Saved")
+            })
+        } catch {}
+    }
+    
+    func setProduct() {
         if (salePriceField.text == "" || salePriceField.text == nil) {
             salePriceField.text = "0.00"
             profitField.text = "0.00"
         }
-        let newProduct = RetailProduct()
-        newProduct.type = categoryField.text!
-        newProduct.quality = qualityField.text!
-        newProduct.brand = brandField.text!
-        newProduct.dustBag = (dustBagField.text == "Yes")
-        newProduct.originalBox = (originalBoxField.text == "Yes")
-        newProduct.originalPrice = Double(originalPriceField.text!)!
-        newProduct.purchasePrice = Double(purchasePriceField.text!)!
-        newProduct.estSalePrice = Double(estSalePriceField.text!)!
-        newProduct.estProfit = Double(estProfitLabel.text!)!
-        newProduct.profit = Double(profitField.text!)!
-        newProduct.salePrice = Double(salePriceField.text!)!
-        newProduct.store = storeField.text!
-        newProduct.size = sizeField.text!
-        newProduct.styleName = styleField.text!
-        newProduct.dateOfPurchase = dateFormatter.date(from: purchaseDateField.text!)!
+        product.type = categoryField.text!
+        product.quality = qualityField.text!
+        product.brand = brandField.text!
+        product.dustBag = (dustBagField.text == "Yes")
+        product.originalBox = (originalBoxField.text == "Yes")
+        product.originalPrice = Double(originalPriceField.text!)!
+        product.purchasePrice = Double(purchasePriceField.text!)!
+        product.estSalePrice = Double(estSalePriceField.text!)!
+        product.estProfit = Double(estProfitLabel.text!)!
+        product.profit = Double(profitField.text!)!
+        product.salePrice = Double(salePriceField.text!)!
+        product.store = storeField.text!
+        product.size = sizeField.text!
+        product.styleName = styleField.text!
+        product.dateOfPurchase = dateFormatter.date(from: purchaseDateField.text!)!
         
+        if (itemImage.image != nil) {
+            let data = UIImageJPEGRepresentation(itemImage.image!, 1.0) as NSData?
+            let documentsPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0] as NSString
+            let writePath = documentsPath.appendingPathComponent("ret-assist-" + String(product.id) + ".jpg")
+            data?.write(toFile: writePath, atomically: true)
+            let itemImageUrl = writePath as NSString
+            product.imagePath = itemImageUrl
+        }
+        
+        if (receiptImage.image != nil) {
+            let data = UIImageJPEGRepresentation(receiptImage.image!, 1.0) as NSData?
+            let documentsPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0] as NSString
+            let writePath = documentsPath.appendingPathComponent("ret-assist-" + String(product.id) + "-receipt.jpg")
+            data?.write(toFile: writePath, atomically: true)
+            let receiptImageUrl = writePath as NSString
+            product.receiptPath = receiptImageUrl
+        }
+    }
+    
+    func saveItemFromEdit() {
         do {
             let realm = try Realm()
-            newProduct.id = ((realm.objects(RetailProduct.self).map{$0.id}.max() ?? 0) + 1)
-            
-            if (itemImage.image != nil) {
-                let data = UIImageJPEGRepresentation(itemImage.image!, 1.0) as NSData?
-                let documentsPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0] as NSString
-                let writePath = documentsPath.appendingPathComponent("ret-assist-" + String(newProduct.id) + ".jpg")
-                data?.write(toFile: writePath, atomically: true)
-                let itemImageUrl = writePath as NSString
-                newProduct.imagePath = itemImageUrl
-            }
-            
-            if (receiptImage.image != nil) {
-                let data = UIImageJPEGRepresentation(receiptImage.image!, 1.0) as NSData?
-                let documentsPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0] as NSString
-                let writePath = documentsPath.appendingPathComponent("ret-assist-" + String(newProduct.id) + "-receipt.jpg")
-                data?.write(toFile: writePath, atomically: true)
-                let receiptImageUrl = writePath as NSString
-                newProduct.receiptPath = receiptImageUrl
-            }
             
             try realm.write({ () -> Void in
-                realm.add(newProduct)
-                print("Contact Saved")
+                setProduct()
+                print("Product \(product.id) Edit Saved")
             })
         } catch {}
     }
@@ -269,8 +333,10 @@ class EntryTableViewController: UITableViewController, CategoryModalDelegate, UI
         {
             if (currentImageView?.isEqual(itemImage))! {
                 itemImage.image = image
+                imageBtn.setTitle("", for: .normal)
             } else {
                 receiptImage.image = image
+                receiptBtn.setTitle("", for: .normal)
             }
             let compressedImage = UIImage(data: UIImageJPEGRepresentation(image, 1.0)!)
             UIImageWriteToSavedPhotosAlbum(compressedImage!, nil, nil, nil)
