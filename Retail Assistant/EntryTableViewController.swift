@@ -28,8 +28,8 @@ class EntryTableViewController: UITableViewController, CategoryModalDelegate, UI
     var shoeSizeList = ["5", "5.5", "6", "6.5", "7", "7.5", "8", "8.5", "9", "9.5", "10", "10.5", "11", "11.5", "12", "12.5", "13"]
     var bagSizeList = ["Micro", "Mini", "Small", "Medium", "Large", "Extra Large"]
     var clothingSizeList = ["00", "0", "2", "4", "6", "8", "10", "12", "XXS", "XS", "S", "M", "L", "XL", "XXL"]
-    var brandList = ["Stuart Weitzman", "Jimmy Choo", "Tory Burch", "Charlotte Olympia", "Manono Blahnik", "Valentino", "Chanel", "Christian Dior", "Miu Miu", "Bottega Veneta", "Prada", "Christian Louboutin", "Salvatore Ferragamo", "Kate Spade", "Vince", "Chloe", "Celine", "Fendi", "Gucci", "Saint Laurent", "Rebecca Taylor", "Alexander McQueen", "Alexander Wang", "Burberry", "Coach"]
-    var storeList = ["Nordstrom Rack", "Neiman Marcus", "Saks", "T.J. Maxx", "Poshmark", "Tradesy", "Marshalls", "Bloomingdale's"]
+    var brandList = ["Stuart Weitzman", "Jimmy Choo", "Tory Burch", "Charlotte Olympia", "Manono Blahnik", "Valentino", "Chanel", "Christian Dior", "Miu Miu", "Bottega Veneta", "Prada", "Christian Louboutin", "Salvatore Ferragamo", "Kate Spade", "Vince", "Chloe", "Celine", "Fendi", "Gucci", "Saint Laurent", "Rebecca Taylor", "Alexander McQueen", "Alexander Wang", "Burberry", "Coach", "Moncler"]
+    var storeList = ["Nordstrom Rack", "Neiman Marcus", "Saks", "T.J. Maxx", "Poshmark", "Tradesy", "Marshalls", "Bloomingdale's", "The Real Real", "Jeffrey New York"]
     var boolList = ["Yes", "No"]
     var isImage: Bool = false
     var currentImageView : UIImageView?
@@ -37,6 +37,7 @@ class EntryTableViewController: UITableViewController, CategoryModalDelegate, UI
     let dateFormatter = DateFormatter()
     var isAddBtnPressed: Bool = true
     var product: RetailProduct = RetailProduct()
+    var hasEdited = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,12 +45,25 @@ class EntryTableViewController: UITableViewController, CategoryModalDelegate, UI
         brandList.append("Other")
         storeList.sort()
         storeList.append("Other")
-        createDatePicker()
         dateFormatter.dateFormat = "MM/dd/yyyy"
         originalPriceField.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
         purchasePriceField.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
         salePriceField.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
         setupFieldsForEdit()
+        createDatePicker()
+    }
+    
+    @IBAction func backButtonPressed(_ sender: Any) {
+        if(hasEdited) {
+            let alert = UIAlertController(title: "Alert", message: "Are you sure you want to leave before saving?", preferredStyle: UIAlertControllerStyle.alert)
+            alert.addAction(UIAlertAction(title: "Yes", style: UIAlertActionStyle.default, handler: {(action:UIAlertAction!) in
+            self.navigationController?.popToRootViewController(animated: true)
+        }))
+            alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.default, handler: nil ))
+            self.present(alert, animated: true, completion: nil)
+        } else {
+            self.navigationController?.popToRootViewController(animated: true)
+        }
     }
     
     func setupFieldsForEdit() {
@@ -103,6 +117,7 @@ class EntryTableViewController: UITableViewController, CategoryModalDelegate, UI
     }
     
     func setValueInField(section: Int, row: Int, value: String) {
+        hasEdited = true
         if(section == 1) {
             switch row {
             case 0:
@@ -126,7 +141,6 @@ class EntryTableViewController: UITableViewController, CategoryModalDelegate, UI
                 qualityField.text = value
                 break
             default:
-                print("Row not meant to be selected")
                 break
             }
         } else if (section == 3) {
@@ -240,8 +254,6 @@ class EntryTableViewController: UITableViewController, CategoryModalDelegate, UI
     }
     
     func checkCanSave() -> Bool {
-        print(categoryField.text != "")
-        print(originalPriceField.text != "")
         if(categoryField.text != "" && qualityField.text != "" && brandField.text != "" && originalPriceField.text != "" && purchasePriceField.text != "" && estSalePriceField.text != "" && estProfitLabel.text != "" && storeField.text != "" && sizeField.text != "" && styleField.text != "" && purchaseDateField.text != "") {
             return true
         }
@@ -307,6 +319,7 @@ class EntryTableViewController: UITableViewController, CategoryModalDelegate, UI
             
             try realm.write({ () -> Void in
                 setProduct()
+                print(product.dateOfPurchase)
                 print("Product \(product.id) Edit Saved")
             })
         } catch {}
@@ -338,8 +351,7 @@ class EntryTableViewController: UITableViewController, CategoryModalDelegate, UI
                 receiptImage.image = image
                 receiptBtn.setTitle("", for: .normal)
             }
-            let compressedImage = UIImage(data: UIImageJPEGRepresentation(image, 1.0)!)
-            UIImageWriteToSavedPhotosAlbum(compressedImage!, nil, nil, nil)
+            hasEdited = true
             dismiss(animated: true, completion: nil)
         } else {
             let alert = UIAlertController(title: "Alert", message: "We had an issue in the image conversion process...", preferredStyle: UIAlertControllerStyle.alert)
@@ -350,10 +362,15 @@ class EntryTableViewController: UITableViewController, CategoryModalDelegate, UI
     
     func createDatePicker() {
         datePicker.datePickerMode = .date
+        if(purchaseDateField.text != nil && purchaseDateField.text != "") {
+            datePicker.date = dateFormatter.date(from: purchaseDateField.text!)!
+        }
         let toolbar = UIToolbar()
         toolbar.sizeToFit()
         let doneBtn = UIBarButtonItem(barButtonSystemItem: .done, target: nil, action: #selector(doneBtnPressed))
-        toolbar.setItems([doneBtn], animated: false)
+        let cancelButton = UIBarButtonItem(barButtonSystemItem: .cancel, target: nil, action: #selector(cancelPressed))
+        let flexibleSpace = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.flexibleSpace, target: nil, action: nil);
+        toolbar.setItems([cancelButton, flexibleSpace, doneBtn], animated: false)
         purchaseDateField.inputAccessoryView = toolbar
         purchaseDateField.inputView = datePicker
     }
@@ -364,7 +381,12 @@ class EntryTableViewController: UITableViewController, CategoryModalDelegate, UI
         self.view.endEditing(true)
     }
     
+    func cancelPressed() {
+        self.view.endEditing(true)
+    }
+    
     func textFieldDidChange(_ textField: UITextField) {
+        hasEdited = true
         let originalPrice = Double(originalPriceField.text!)
         let purchasePrice = Double(purchasePriceField.text!)
         let salePrice = Double(salePriceField.text!)
@@ -373,7 +395,7 @@ class EntryTableViewController: UITableViewController, CategoryModalDelegate, UI
             let estSalePrice = originalPrice! * 0.5
             estSalePriceField.text = String(format:"%.2f", estSalePrice)
             if (purchasePrice != nil) {
-                let estProfit = (estSalePrice - purchasePrice!) * 0.8
+                let estProfit = (estSalePrice - purchasePrice!)
                 estProfitLabel.text = String(format: "%.2f", estProfit)
             } else {
                 estProfitLabel.text = ""

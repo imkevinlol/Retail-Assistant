@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		112977C61EC6A4B900A4C97D /* ImageDisplayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 112977C51EC6A4B900A4C97D /* ImageDisplayViewController.swift */; };
+		112977C81EC7D76400A4C97D /* ReminderTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 112977C71EC7D76400A4C97D /* ReminderTableViewController.swift */; };
+		112977CA1EC7D85900A4C97D /* ReminderDisplayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 112977C91EC7D85900A4C97D /* ReminderDisplayViewController.swift */; };
 		112EFA931EBEE2AB0056C54A /* ProductViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 112EFA921EBEE2AB0056C54A /* ProductViewController.swift */; };
 		112EFA981EBF920D0056C54A /* RetailProduct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 112EFA971EBF920D0056C54A /* RetailProduct.swift */; };
 		112EFA9A1EBFE1FF0056C54A /* ProductDisplayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 112EFA991EBFE1FF0056C54A /* ProductDisplayViewController.swift */; };
@@ -55,6 +57,8 @@
 /* Begin PBXFileReference section */
 		0DAE95B2AC809492F3E8E748 /* Pods-Retail Assistant.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Retail Assistant.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Retail Assistant/Pods-Retail Assistant.debug.xcconfig"; sourceTree = "<group>"; };
 		112977C51EC6A4B900A4C97D /* ImageDisplayViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageDisplayViewController.swift; sourceTree = "<group>"; };
+		112977C71EC7D76400A4C97D /* ReminderTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReminderTableViewController.swift; sourceTree = "<group>"; };
+		112977C91EC7D85900A4C97D /* ReminderDisplayViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReminderDisplayViewController.swift; sourceTree = "<group>"; };
 		112EFA921EBEE2AB0056C54A /* ProductViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductViewController.swift; sourceTree = "<group>"; };
 		112EFA971EBF920D0056C54A /* RetailProduct.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RetailProduct.swift; sourceTree = "<group>"; };
 		112EFA991EBFE1FF0056C54A /* ProductDisplayViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductDisplayViewController.swift; sourceTree = "<group>"; };
@@ -180,6 +184,8 @@
 				115A406B1EC6763E00C668BB /* EntryTableViewController.swift */,
 				115A406F1EC67FDD00C668BB /* CategorySelectionViewController.swift */,
 				112977C51EC6A4B900A4C97D /* ImageDisplayViewController.swift */,
+				112977C71EC7D76400A4C97D /* ReminderTableViewController.swift */,
+				112977C91EC7D85900A4C97D /* ReminderDisplayViewController.swift */,
 				11D5A93C1EBEDA460031A017 /* Main.storyboard */,
 				11D5A93F1EBEDA470031A017 /* Assets.xcassets */,
 				11D5A9411EBEDA470031A017 /* LaunchScreen.storyboard */,
@@ -532,6 +538,8 @@
 				115A405C1EC2996300C668BB /* PhotoModalViewController.swift in Sources */,
 				115A40621EC3D48000C668BB /* StatusTableViewController.swift in Sources */,
 				115A40481EC1344800C668BB /* File.swift in Sources */,
+				112977C81EC7D76400A4C97D /* ReminderTableViewController.swift in Sources */,
+				112977CA1EC7D85900A4C97D /* ReminderDisplayViewController.swift in Sources */,
 				115A406C1EC6763E00C668BB /* EntryTableViewController.swift in Sources */,
 				112EFA931EBEE2AB0056C54A /* ProductViewController.swift in Sources */,
 			);

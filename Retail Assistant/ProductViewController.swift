@@ -1,12 +1,13 @@
 import UIKit
 import RealmSwift
 
-class ProductViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate, UISearchDisplayDelegate {
+class ProductViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate, UISearchDisplayDelegate, UISearchResultsUpdating {
     
     @IBOutlet weak var productTableView: UITableView!
     
     var datasource : Results<RetailProduct>!
     var searchResult:Array<RetailProduct>?
+    let resultSearchController = UISearchController(searchResultsController: nil)
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -19,7 +20,33 @@ class ProductViewController: UIViewController, UITableViewDelegate, UITableViewD
         self.reloadTable()
         navigationController?.navigationBar.barStyle = UIBarStyle.black
         tabBarController?.tabBar.barStyle = UIBarStyle.black
+        
+        resultSearchController.searchResultsUpdater = self
+        resultSearchController.dimsBackgroundDuringPresentation = false
+        definesPresentationContext = true
+        productTableView.tableHeaderView = resultSearchController.searchBar
+        resultSearchController.searchBar.searchBarStyle = .prominent
+        resultSearchController.searchBar.sizeToFit()
+        productTableView.keyboardDismissMode = .onDrag
     }
+    
+    func filterContentForSearchText(searchText: String) {
+        if self.datasource == nil {
+            self.searchResult = nil
+            return
+        }
+        searchResult = datasource.filter { data in
+            return (data.brand.lowercased().contains(searchText.lowercased())
+                || data.styleName.lowercased().contains(searchText.lowercased())
+                || data.store.lowercased().contains(searchText.lowercased()))
+        }
+        productTableView.reloadData()
+    }
+    
+    public func updateSearchResults(for searchController: UISearchController) {
+        filterContentForSearchText(searchText: searchController.searchBar.text!)
+    }
+
     
     func reloadTable() {
         do {
@@ -28,7 +55,7 @@ class ProductViewController: UIViewController, UITableViewDelegate, UITableViewD
             productTableView?.reloadData()
         } catch {}
         
-        datasource = datasource!.sorted(byKeyPath: "dateOfPurchase", ascending: false)
+        datasource = datasource!.sorted(byKeyPath: "dateOfPurchase", ascending: true)
     }
     
     func setupTable() {
@@ -41,22 +68,33 @@ class ProductViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        if resultSearchController.isActive {
+            if(section == 0) {
+                return 54
+            }
+            return 10
+        }
         return 10
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-//        if productTableView == self.searchDisplayController!.searchResultsTableView {
-//            return self.speciesSearchResults?.count ?? 0
-//        } else {
-//            return self.species?.count ?? 0
-//        }
-        return datasource.count
+        if resultSearchController.isActive && resultSearchController.searchBar.text != "" {
+            return self.searchResult!.count 
+        } else {
+            return self.datasource.count
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = productTableView.dequeueReusableCell(withIdentifier: "productCell") as! ProductDisplayTableViewCell
+        var currentProduct = RetailProduct()
         
-        let currentProduct = datasource[indexPath.section]
+        if resultSearchController.isActive && resultSearchController.searchBar.text != "" {
+            currentProduct = (searchResult?[indexPath.section])!
+        } else {
+            currentProduct = datasource[indexPath.section]
+
+        }
         
         let formatter = DateFormatter()
         formatter.dateFormat = "MM/dd/yyyy"
@@ -67,6 +105,7 @@ class ProductViewController: UIViewController, UITableViewDelegate, UITableViewD
         cell.brandLabel.text = currentProduct.brand
         cell.sizeLabel.text = formatSize(size: currentProduct.size)
         cell.styleLabel.text = currentProduct.styleName
+        cell.idLabel.text = String(indexPath.section+1)
         if (currentProduct.imagePath != "") {
             cell.imageVIew.image = getImage(id: currentProduct.id)
         }
@@ -81,7 +120,11 @@ class ProductViewController: UIViewController, UITableViewDelegate, UITableViewD
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let viewController = storyboard?.instantiateViewController(withIdentifier: "entryView") as! EntryTableViewController
         viewController.isAddBtnPressed = false
-        viewController.product = datasource[indexPath.section]
+        if resultSearchController.isActive && resultSearchController.searchBar.text != "" {
+            viewController.product = (searchResult?[indexPath.section])!
+        } else {
+            viewController.product = datasource[indexPath.section]
+        }
         self.navigationController?.pushViewController(viewController, animated: true)
     }
     
@@ -90,7 +133,11 @@ class ProductViewController: UIViewController, UITableViewDelegate, UITableViewD
             do {
                 let realm = try Realm()
                 try! realm.write {
-                    realm.delete(datasource[indexPath.section])
+                    if resultSearchController.isActive && resultSearchController.searchBar.text != "" {
+                        realm.delete((searchResult?[indexPath.section])!)
+                    } else {
+                        realm.delete(datasource[indexPath.section])
+                    }
                 }
             } catch{}
             
@@ -127,25 +174,10 @@ class ProductViewController: UIViewController, UITableViewDelegate, UITableViewD
         return "Size: " + size
     }
     
-    func filterContentForSearchText(searchText: String) {
-        if self.datasource == nil {
-            self.searchResult = nil
-            return
-        }
-        self.searchResult = self.datasource!.filter({( aProduct: RetailProduct) -> Bool in
-            return aProduct.store.lowercased().range(of: searchText.lowercased()) != nil
-        })
-    }
-    
     @IBAction func addProductBtnPressed(_ sender: Any) {
         let viewController = storyboard?.instantiateViewController(withIdentifier: "entryView") as! EntryTableViewController
         self.navigationController?.pushViewController(viewController, animated: true)
     }
     
-    func searchDisplayController(_ controller: UISearchDisplayController, shouldReloadTableForSearch searchString: String?) -> Bool {
-        self.filterContentForSearchText(searchText: searchString!)
-        return true
-    }
-    
-    
 }
+
