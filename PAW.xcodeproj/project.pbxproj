@@ -332,7 +332,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 11D5A92E1EBEDA460031A017 /* Build configuration list for PBXProject "Retail Assistant" */;
+			buildConfigurationList = 11D5A92E1EBEDA460031A017 /* Build configuration list for PBXProject "PAW" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -784,7 +784,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		11D5A92E1EBEDA460031A017 /* Build configuration list for PBXProject "Retail Assistant" */ = {
+		11D5A92E1EBEDA460031A017 /* Build configuration list for PBXProject "PAW" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				11D5A95B1EBEDA470031A017 /* Debug */,

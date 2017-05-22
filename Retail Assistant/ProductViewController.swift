@@ -106,6 +106,11 @@ class ProductViewController: UIViewController, UITableViewDelegate, UITableViewD
         cell.sizeLabel.text = formatSize(size: currentProduct.size)
         cell.styleLabel.text = currentProduct.styleName
         cell.idLabel.text = String(indexPath.section+1)
+        if (currentProduct.salePrice != 0.00) {
+            cell.uiView.backgroundColor = UIColor.lightGray
+        } else {
+            cell.uiView.backgroundColor = UIColor.clear
+        }
         if (currentProduct.imagePath != "") {
             cell.imageVIew.image = getImage(id: currentProduct.id)
         }

@@ -17,7 +17,7 @@
                BlueprintIdentifier = "11D5A9321EBEDA460031A017"
                BuildableName = "Retail Assistant.app"
                BlueprintName = "Retail Assistant"
-               ReferencedContainer = "container:Retail Assistant.xcodeproj">
+               ReferencedContainer = "container:PAW.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -35,7 +35,7 @@
                BlueprintIdentifier = "11D5A9481EBEDA470031A017"
                BuildableName = "Retail AssistantTests.xctest"
                BlueprintName = "Retail AssistantTests"
-               ReferencedContainer = "container:Retail Assistant.xcodeproj">
+               ReferencedContainer = "container:PAW.xcodeproj">
             </BuildableReference>
          </TestableReference>
          <TestableReference
@@ -45,7 +45,7 @@
                BlueprintIdentifier = "11D5A9531EBEDA470031A017"
                BuildableName = "Retail AssistantUITests.xctest"
                BlueprintName = "Retail AssistantUITests"
-               ReferencedContainer = "container:Retail Assistant.xcodeproj">
+               ReferencedContainer = "container:PAW.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -55,7 +55,7 @@
             BlueprintIdentifier = "11D5A9321EBEDA460031A017"
             BuildableName = "Retail Assistant.app"
             BlueprintName = "Retail Assistant"
-            ReferencedContainer = "container:Retail Assistant.xcodeproj">
+            ReferencedContainer = "container:PAW.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -78,7 +78,7 @@
             BlueprintIdentifier = "11D5A9321EBEDA460031A017"
             BuildableName = "Retail Assistant.app"
             BlueprintName = "Retail Assistant"
-            ReferencedContainer = "container:Retail Assistant.xcodeproj">
+            ReferencedContainer = "container:PAW.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -97,7 +97,7 @@
             BlueprintIdentifier = "11D5A9321EBEDA460031A017"
             BuildableName = "Retail Assistant.app"
             BlueprintName = "Retail Assistant"
-            ReferencedContainer = "container:Retail Assistant.xcodeproj">
+            ReferencedContainer = "container:PAW.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

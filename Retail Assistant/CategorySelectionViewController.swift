@@ -11,11 +11,13 @@ class CategorySelectionViewController: UIViewController, UITableViewDelegate, UI
     var deledateIndexPath: IndexPath?
     var displayList = [String]()
     var isCurrentImage = false
+    var theTitle: String = "test"
     
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
+        self.title = theTitle
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

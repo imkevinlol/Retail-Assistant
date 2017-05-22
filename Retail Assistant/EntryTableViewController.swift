@@ -31,6 +31,7 @@ class EntryTableViewController: UITableViewController, CategoryModalDelegate, UI
     var brandList = ["Stuart Weitzman", "Jimmy Choo", "Tory Burch", "Charlotte Olympia", "Manono Blahnik", "Valentino", "Chanel", "Christian Dior", "Miu Miu", "Bottega Veneta", "Prada", "Christian Louboutin", "Salvatore Ferragamo", "Kate Spade", "Vince", "Chloe", "Celine", "Fendi", "Gucci", "Saint Laurent", "Rebecca Taylor", "Alexander McQueen", "Alexander Wang", "Burberry", "Coach", "Moncler"]
     var storeList = ["Nordstrom Rack", "Neiman Marcus", "Saks", "T.J. Maxx", "Poshmark", "Tradesy", "Marshalls", "Bloomingdale's", "The Real Real", "Jeffrey New York"]
     var boolList = ["Yes", "No"]
+    
     var isImage: Bool = false
     var currentImageView : UIImageView?
     var datePicker = UIDatePicker()
@@ -152,18 +153,46 @@ class EntryTableViewController: UITableViewController, CategoryModalDelegate, UI
         }
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-    }
-    
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if(indexPath.section != 2 && indexPath.section != 0 && getDisplayList(row: indexPath.row, section: indexPath.section).count > 0) {
             let viewController = storyboard?.instantiateViewController(withIdentifier: "categorySelectionView") as! CategorySelectionViewController
             viewController.displayList = getDisplayList(row: indexPath.row, section: indexPath.section)
             viewController.delegate = self
             viewController.deledateIndexPath = indexPath
+            print(indexPath.row)
+            print(indexPath.section)
+            print("=====")
+            viewController.theTitle = getTitle(row: indexPath.row, section: indexPath.section)
             self.navigationController?.pushViewController(viewController, animated: true)
         }
+    }
+    
+    func getTitle(row: Int, section: Int) -> String {
+        if (section == 1) {
+            if (row == 0) {
+                return "Store"
+            }
+            if (row == 2) {
+                return "Category"
+            }
+            if (row == 3) {
+                return "Brand"
+            }
+            if (row == 5) {
+                return "Size"
+            }
+            if (row == 6) {
+                return "Quality"
+            }
+        }
+        if (section == 3) {
+            if (row == 0) {
+                return "Dust Bag Included"
+            } else {
+                return "Original Box Included"
+            }
+        }
+        return ""
     }
     
     func getDisplayList(row: Int, section: Int) -> Array<String> {

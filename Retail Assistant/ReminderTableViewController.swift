@@ -38,7 +38,7 @@ class ReminderTableViewController: UITableViewController {
     func getReturnListWithin(weekWithin: Int) -> Array<RetailProduct> {
         var list = [RetailProduct]()
         for data in datasource {
-            if (isWithinXWeek(data: data, weekWithin: weekWithin)) {
+            if (isWithinXWeek(data: data, weekWithin: weekWithin) && data.salePrice == 0.00) {
                 list.append(data)
             }
         }

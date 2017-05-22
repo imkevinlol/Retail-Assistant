@@ -10,6 +10,7 @@ class ProductDisplayTableViewCell: UITableViewCell {
     @IBOutlet weak var dateOfPurchaseLabel: UILabel!
     @IBOutlet weak var purchasePriceLabel: UILabel!
     @IBOutlet weak var idLabel: UILabel!
+    @IBOutlet weak var uiView: UIView!
     
     override func awakeFromNib() {
         super.awakeFromNib()

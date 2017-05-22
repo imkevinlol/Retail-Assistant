@@ -48,7 +48,6 @@ class StatusTableViewController: UITableViewController {
     }
     
     @IBAction func cellProfitYTDTapped(_ sender: UITapGestureRecognizer) {
-        print("sender\(sender)")
         clearData()
         let reportView = storyboard?.instantiateViewController(withIdentifier: "reportVC") as! ReportViewController
         reportView.bottomHeader = "PROFIT STATEMENT YEAR-TO-DATE"
@@ -65,7 +64,6 @@ class StatusTableViewController: UITableViewController {
     }
     
     @IBAction func cellSpendingMonthTapped(_ sender: UITapGestureRecognizer) {
-        print("sender\(sender)")
         clearData()
         let reportView = storyboard?.instantiateViewController(withIdentifier: "reportVC") as! ReportViewController
         reportView.bottomHeader = "SPENDING STATEMENT"
@@ -82,7 +80,6 @@ class StatusTableViewController: UITableViewController {
     }
     
     @IBAction func cellSpendingYTDTapped(_ sender: UITapGestureRecognizer) {
-        print("sender\(sender)")
         clearData()
         let reportView = storyboard?.instantiateViewController(withIdentifier: "reportVC") as! ReportViewController
         reportView.bottomHeader = "SPENDING YEAR-TO-DATE STATEMENT"
@@ -127,7 +124,7 @@ class StatusTableViewController: UITableViewController {
     func getTotalSpending(isYTD: Bool) -> String {
         var totalSpending: Double = 0.0
         for data in datasource {
-            if((isYTD && isCurrentYear(result: data)) || (!isYTD && isCurrentMonth(result: data))) {
+            if(((isYTD && isCurrentYear(result: data)) || (!isYTD && isCurrentMonth(result: data))) && isNotSold(data: data)) {
                 totalSpending += data.purchasePrice
                 storeList.append(data.store)
                 brandList.append(data.brand)
@@ -138,6 +135,14 @@ class StatusTableViewController: UITableViewController {
         }
         
         return currencyFormat(amount: totalSpending)
+    }
+    
+    func isNotSold(data: RetailProduct) -> Bool {
+        if (data.salePrice > 0.00) {
+            return false
+        }
+        
+        return true
     }
     
     func isCurrentMonth(result: RetailProduct) -> Bool {

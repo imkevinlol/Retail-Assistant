@@ -4,20 +4,20 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>Pods-Retail Assistant.xcscheme</key>
+		<key>Pods-PAWS.xcscheme</key>
 		<dict>
 			<key>isShown</key>
-			<false/>
+			<true/>
 		</dict>
-		<key>Pods-Retail AssistantTests.xcscheme</key>
+		<key>Pods-PAWSTests.xcscheme</key>
 		<dict>
 			<key>isShown</key>
-			<false/>
+			<true/>
 		</dict>
-		<key>Pods-Retail AssistantUITests.xcscheme</key>
+		<key>Pods-PAWSUITests.xcscheme</key>
 		<dict>
 			<key>isShown</key>
-			<false/>
+			<true/>
 		</dict>
 		<key>Realm.xcscheme</key>
 		<dict>
